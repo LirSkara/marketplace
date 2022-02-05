@@ -1,0 +1,271 @@
+.bg-darksuccess {
+    background: #156f7e;
+}
+
+.btn-darksuccess {
+    color: #fff;
+    background-color: #156f7e !important;
+    border-color: #156f7e !important;
+}
+
+.btn-darksuccess:hover {
+    color: #fff;
+    background-color: #125f6c !important;
+    border-color: #125f6c !important;
+}
+
+.bg-purple {
+    background: purple;
+}
+
+.btn-purple {
+    background: purple;
+}
+
+.text-purple {
+    color: purple;
+}
+
+.custom .nav-link.active {
+    background: #156f7e !important;
+}
+
+.text-darksuccess {
+    color: #156f7e !important;
+}
+
+.cart-image {
+    max-width: 450px;
+}
+
+.flag-custom {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: 0 -.0rem .27rem rgba(0, 0, 0, 0.4) !important;
+}
+
+.search-custom {
+    width: 70%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: none;
+    background-color: #f2f2f2;
+    height: 40px;
+    outline: none;
+    padding-left: 15px;
+}
+
+.item-custom {
+    width: 10%;
+    height: 40px;
+    background-color: #f2f2f2;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.itemposition-custom {
+    position: relative;
+    right: 7px;
+    top: 0;
+}
+
+.img-custom {
+    width: 100%;
+    transition: 0.4s;
+}
+
+.down-custom {
+    font-size: 10px;
+    display: inline-block;
+    transition: 0.4s;
+}
+
+.down-animation {
+    transition: 0.4s;
+    transform: rotate(-180deg);
+}
+
+.img-custom:hover {
+    transform: scale(1.05);
+    filter: brightness(70%);
+}
+
+.scroll-none {
+    overflow: scroll;
+    scrollbar-width: none;
+    width: 106%;
+    position: relative;
+    right: 3%;
+}
+
+.divimg {
+    overflow: hidden;
+}
+
+.img-width-one {
+    width: 100%;
+}
+
+.img-width-two {
+    width: 90%;
+}
+
+.name-detailed {
+    width: 103%;
+    position: relative;
+    right: 3%;
+    background-color: #156e7e2f;
+    padding-left: 35px;
+}
+
+.accordion-pl {
+    padding-left: 47px;
+}
+
+.accordionbody-pl {
+    padding-left: 75px;
+}
+
+.accordion-button:focus,
+.accordion-button:active,
+.accordion-button:after,
+.accordion-button:hover {
+    box-shadow: none;
+    border: none !important;
+    outline: none !important;
+    color: black;
+    background-color: white;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:hover {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn:focus,
+.btn:active,
+.btn:hover {
+    outline: none;
+    box-shadow: none;
+}
+
+.sign-in-block {
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sign-in-block .nav .nav-link {
+    color: #6c757d;
+}
+
+.sign-in-block .nav-item .active {
+    background: #156f7e;
+    color: white;
+}
+
+.custom .nav-link.active {
+    background: #156f7e !important;
+}
+
+.custom .nav-link.active:hover {
+    color: white;
+}
+
+.custom .nav-link {
+    color: #6c757d;
+}
+
+.custom .nav-link:hover {
+    color: #6c757d;
+}
+
+.card-img-top {
+    width: auto;
+    height: 84px;
+    margin: 0 auto;
+}
+
+.icon-custom {
+    position: relative;
+    top: 3px;
+}
+
+.fw-custom {
+    font-weight: 600;
+}
+
+.carusel-image {
+    height: 450px;
+    margin: 0 auto;
+}
+
+.crumb-custom a {
+    color: black;
+    text-decoration: none;
+}
+.breadcrumb-item {
+    font-size: 10pt;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    color: rgb(0, 0, 0);
+}
+
+.carousel-control-next,
+.carousel-control-prev:hover {
+    color: rgb(0, 0, 0);
+}
+
+.carousel-control-next,
+.carousel-control-next:hover {
+    color: rgb(0, 0, 0);
+}
+
+.carousel-control-next,
+.carousel-control-prev:focus {
+    color: rgb(0, 0, 0);
+}
+
+.carousel-control-next,
+.carousel-control-next:focus {
+    color: rgb(0, 0, 0);
+}
+.carousel-indicators {
+    margin-bottom: -1.8rem;
+}
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background-color: #157180;
+}
+
+@media (max-width: 991px) {
+    .cart-image {
+        max-width: 40%;
+    }
+    .sign-in-block {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .carusel-image {
+        width: auto;
+        height: 230px;
+        margin: 0 auto;
+    }
+    .btn-custom {
+        width: 100%;
+    }
+}
