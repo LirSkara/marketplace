@@ -7,7 +7,7 @@
         <li class="breadcrumb-item active" aria-current="page">Добавление магазина</li>
     </ol>
 </nav>
-  <form action="/punkt_add/{{$user->id}}" method="POST">
+  <form action="/store_add" method="POST">
     @csrf
     <div class="mb-2 fs-3">Основная информация</div>
     <div class="mb-3">

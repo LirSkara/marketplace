@@ -84,15 +84,16 @@ Route::middleware('auth','admin')->group(function () {
 
 Route::middleware('auth','seller')->group(function () {
     //Store
-    Route::get('/store_add', [StoreController::class, 'store_add'])->name('store_add');
     Route::get('/store', [StoreController::class, 'index'])->name('store');
 
     //Forms
+    Route::get('/store_add', [StoreController::class, 'store_add']);
     Route::get('/add_product', [StoreController::class, 'add_product']);
     Route::get('/edit_product/{id}', [StoreController::class, 'edit_product']);
     Route::get('/delete_product/{id}', [StoreController::class, 'delete_product']);
 
     //Handlers
+    Route::post('/store_add', [StoreController::class, 'store_add_process']);
     Route::post('/add_product', [StoreController::class, 'add_product_process']);
     Route::post('/edit_product/{id}', [StoreController::class, 'edit_product_process']);
     Route::post('/delete_product/{id}', [StoreController::class, 'delete_product_process']);

@@ -15,6 +15,11 @@ class CreateStoresTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('name');
+            $table->string('description');
+            $table->string('keywords');
+            $table->string('user');
             $table->timestamps();
         });
     }
