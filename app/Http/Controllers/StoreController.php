@@ -10,7 +10,14 @@ class StoreController extends Controller
 {
     public function index()
     {
-        return view('store.index');
+        $user = auth()->user();
+        $count_shop = Store::where('user',$user->id)->count();
+        if($count_shop == 0){
+            return view('store.index');
+        } else {
+            $item = Store::where('user',$user->id)->first();
+            return view('store.store',['item'=>$item]);
+        }
     }
 
     public function store_add()
@@ -29,20 +36,21 @@ class StoreController extends Controller
 
         $user = auth()->user();
 
-        //Выгрузка обложки
+        
+        $review = new Store();
         $upload_folder = 'public/store/cover/';
         $file = $data->file('image');
         $filename = 'User_ID_' . $user->id . '_' . $file->getClientOriginalName();
-        Storage::putFileAs($upload_folder, $file, $filename);
-
-        $review = new Store();
-        $review->image = $data->input('image');
+        $review->image = $filename;
         $review->name = $data->input('name');
         $review->description = $data->input('description');
         $review->keywords = $data->input('keywords');
         $review->user = $user->id;
         $review->save();
-
-        return $user;
+        Storage::putFileAs($upload_folder, $file, $filename);
+        
+        //Выгрузка обложки
+        
+        return 111;
     }
 }

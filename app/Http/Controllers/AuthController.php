@@ -39,15 +39,7 @@ class AuthController extends Controller
 
         $user = User::create([
             'avatar' => 'default.png',
-            'firstname' => '',
-            'lastname' => '',
-            'patronymic' => '',
-            'gender' => '',
-            'adress' => '',
-            'tel' => '',
-            'date' => '',
             'email' => $data['email'],
-            'date' => '',
             'password' => bcrypt($data['password']),
             'status' => 0,
         ]);

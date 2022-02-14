@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <div class="row">
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 px-2">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -22,7 +22,7 @@
                             <div style="display: none">{{$count = 0}}</div>
                             @foreach($slides as $slide)
                             <a href="{{$slide->href}}" class="carousel-item @if($count == 0)active @endif">
-                                <img src="/storage/slides/{{$slide->image}}" class="d-block w-100" style="object-fit: cover;height:200px;" alt="...">
+                                <img src="/storage/slides/{{$slide->image}}" class="d-block w-100 rounded-3" style="object-fit: cover;height:200px;" alt="...">
                             </a>
                             <div style="display: none">{{$count = ++$count}}</div>
                             @endforeach
@@ -50,7 +50,7 @@
             </div>
             @endforeach
         </div>
-        <div class="row row-cols-1 row-cols-lg-2 mx-0">
+        <div class="row row-cols-1 row-cols-lg-2 mx-0 px-2">
             @foreach($mactions as $maction)
             <div class="col px-0">
                 <a href="{{$maction->href}}"><img class="w-100 my-2 rounded-3" style="object-fit: cover;height:130px;" src="/storage/mactions/{{$maction->image}}" alt=""></a>
