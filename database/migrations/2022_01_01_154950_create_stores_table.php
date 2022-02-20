@@ -20,6 +20,10 @@ class CreateStoresTable extends Migration
             $table->string('description');
             $table->string('keywords');
             $table->string('user');
+            $table->string('email');
+            $table->string('tel');
+            $table->string('city');
+            $table->string('adress')->nullable();;
             $table->timestamps();
         });
     }

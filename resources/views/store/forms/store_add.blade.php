@@ -29,6 +29,26 @@
         <input type="text" class="form-control" value="{{old('keywords')}}" id="keywords" name="keywords" placeholder="text">
         <label for="keywords">Ключевые слова</label>
     </div>
+    <div class="form-floating mb-2">
+        @error('email'){{$message}}@enderror
+        <input type="email" class="form-control" value="{{old('email')}}" id="email" name="email" placeholder="text">
+        <label for="email">Email</label>
+    </div>
+    <div class="form-floating mb-2">
+        @error('tel'){{$message}}@enderror
+        <input type="text" class="form-control" value="{{old('tel')}}" id="tel" name="tel" placeholder="text">
+        <label for="tel">Номер телефона</label>
+    </div>
+    <div class="form-floating mb-2">
+        @error('city'){{$message}}@enderror
+        <input type="text" class="form-control" value="{{old('city')}}" id="city" name="city" placeholder="text">
+        <label for="city">Город</label>
+    </div>
+    <div class="form-floating mb-2">
+        @error('adress'){{$message}}@enderror
+        <input type="text" class="form-control" value="{{old('adress')}}" id="adress" name="adress" placeholder="text">
+        <label for="adress">Адрес</label>
+    </div>
     <button class="btn btn-darksuccess w-100 mt-2"><i class="bi bi-shop"></i> Сохранить магазин</button>
 </form>
 @endsection

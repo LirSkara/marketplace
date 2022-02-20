@@ -14,20 +14,13 @@
                     {{-- <p class="mb-0 text-muted"><i class="bi bi-geo-alt-fill"></i> Г. Дербент, ул. Чапаева 36</p><p class="mb-2 text-muted"><i class="bi bi-telephone-fill"></i> 89387923883</p> --}}
                 </div>
                 <p class="display-6 fs-6">{{$item->description}}</p>
+                <p class="display-6 fs-6">{{$item->email}}</p>
+                <p class="display-6 fs-6">{{$item->tel}}</p>
+                <p class="display-6 fs-6">{{$item->city}} {{$item->adress}}</p>
             </div>
+            <a href="/add_product" class="btn btn-secondary w-100"><i class="bi bi-file-earmark-plus"></i> Добавить товар</a>
         </div>
 
-        <div class="px-2">
-
-            <div class="card mb-2">
-                <div class="card-body">
-                    <div class="fs-3"><i class="bi bi-graph-up"></i> Статистика</div>
-                    <div>Всего продаж за месяц: 123</div>
-                    <div>Сумма продаж за месяц: 1 200 450 ₽</div>
-                </div>
-            </div>
-            
-        </div>
 
     </div>
 </div>
