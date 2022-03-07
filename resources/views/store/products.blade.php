@@ -1,12 +1,11 @@
-@extends('layouts.layout')
+@extends('store.layout')
 @section('main_content')
 <div class="container pb-2">
     <div class="d-flex flex-column">
         <nav aria-label="breadcrumb custom-cr">
             <ol class="breadcrumb crumb-custom">
-                <li class="breadcrumb-item"><a href="/">Главная</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{$c_name}}</li>
-                <li class="breadcrumb-item active" aria-current="page">{{$item->name}}</li>
+                <li class="breadcrumb-item"><a href="/store">{{$item->name}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Товары</li>
             </ol>
         </nav>
         <div class="d-flex">
@@ -134,11 +133,9 @@
         </div>
     </div>
     <div id="rows" class="row g-3 row-cols-2 mt-0 px-2">
+
         @foreach($products as $product)
-            @if($product->category == $item->id)
-                @if ($product->status == 1)
-                    
-                
+            @if($product->store == $item->id)
                 <div class="col mb-2 small">
                     <a href="/product" class="text-decoration-none text-dark">
                         <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
@@ -147,11 +144,10 @@
                         <div><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess"></i></div>
                     </a>
                     <div class="mt-1">
-                        <a href="/cart" class="btn btn-darksuccess text-white py-1 me-2">В корзину</a>
-                        <button class="btn btn-light py-1"><i class="bi bi-heart text-danger fs-5"></i></button>
+                        <a href="/cart" class="btn btn-warning text-white py-1">Ред.</a>
+                        <button class="btn btn-danger py-1">Удалить</button>
                     </div>
                 </div>
-                @endif
             @endif
         @endforeach
     </div>

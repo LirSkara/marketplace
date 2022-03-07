@@ -8,6 +8,7 @@ use App\Models\Mactions;
 use Illuminate\Http\Request;
 use App\Models\Puncts;
 use App\Models\Slides;
+use App\Models\Product;
 
 class MainController extends Controller
 {
@@ -32,8 +33,9 @@ class MainController extends Controller
     public function category($id)
     {
         $item = Puncts::find($id);
+        $products = new Product();
         $c_name = Categories::find($item->category)->name;
-        return view('category',['item' => $item,'c_name' => $c_name]);
+        return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all()]);
     }
 
     public function brand()
