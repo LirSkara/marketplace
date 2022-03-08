@@ -27,7 +27,7 @@
                 <div class="col-3 text-start px-0">
                     <button id="menu" class="fs-2 btn btn-none py-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModalmenu"><i id="men" class="fa fa-bars" aria-hidden="true"></i></button>
                 </div>
-                <a href="/control_panel" class="col-6 fs-4 pt-1 text-center text-white text-decoration-none">CONTROL PANEL</a>
+                <a href="/control_panel" class="col-6 fs-5 pt-1 text-center text-white text-decoration-none">Управление</a>
                 <div class="col-3 text-end px-0">
                     <a href="/cabinet" class="fs-2 btn btn-none py-0 text-white"><i class="bi bi-box-arrow-right"></i></a>
                 </div>
@@ -42,8 +42,9 @@
         <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-body pt-0 px-0">
-                    <div class="container mt-2 px-0 pt-5">
+                    <div class="container mt-1 px-0 pt-5">
                         <ul class="list-group">
+                            <div class="p-2 text-white fs-5 bg-darksuccess">Основные настройки</div>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/control_panel" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-newspaper me-1"></i> Главная страница</span></a>
                             </li>
@@ -62,11 +63,19 @@
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/mrecomendations" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-border-all me-1"></i> Рекомендации на главной</span></a>
                             </li>
+                            <div class="p-2 text-white fs-5 bg-darksuccess">Администрирование</div>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/categories" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-badge me-1"></i> Продавцы</span></a>
                             </li>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/categories" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-workspace me-1"></i> Управляющий персонал</span></a>
+                            </li>
+                            <div class="p-2 text-white fs-5 bg-darksuccess">Управление</div>
+                            <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
+                                <a href="/product_post" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-layout-text-window-reverse"></i> Продукты на проверке</span></a>
+                            </li>
+                            <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
+                                <a href="/review_post" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-layout-text-window-reverse"></i> Отзывы на проверке</span></a>
                             </li>
                         </ul>
                     </div>

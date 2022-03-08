@@ -14,11 +14,11 @@
 
     <div class="card mb-2">
         <div class="card-body">
-            <div class="fs-3"><i class="bi bi-person"></i> Посетители</div>
-            <div class="fs-1">14.456</div>
-            <div class="small text-success">На 5% больше, чем в прошлом месяце</div>
+            <div class="fs-3"><i class="bi bi-person"></i> Посетители: 14.456</div>
         </div>
     </div>
+
+    <h1 class="h3 mb-3">Последние действия</h1>
 
 </div>
 @endsection

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 //Main routes
 Route::get('/', [MainController::class, 'home'])->name('home');
 Route::get('/cart', [MainController::class, 'cart']);
-Route::get('/product', [MainController::class, 'product']);
+Route::get('/product/{id}', [MainController::class, 'product'])->name('product');
 Route::get('/category/{id}', [MainController::class, 'category']);
 Route::get('/brand/{id}', [MainController::class, 'brand']);
 Route::get('/favorites', [MainController::class, 'favorites']);
@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/expenses', [AuthController::class, 'expenses']);
     Route::get('/purchases', [AuthController::class, 'purchases']);
     Route::get('/activity', [AuthController::class, 'activity']);
+
+    Route::post('/review_add/{id}', [MainController::class, 'review_add']);
+
 });
 
 Route::middleware('auth','admin')->group(function () {
@@ -45,6 +48,8 @@ Route::middleware('auth','admin')->group(function () {
     Route::get('/collections', [ControlPanelController::class, 'collections'])->name('collections');
     Route::get('/mactions', [ControlPanelController::class, 'mactions'])->name('mactions');
     Route::get('/mrecomendations', [ControlPanelController::class, 'mrecomendations'])->name('mrecomendations');
+    Route::get('/product_post', [ControlPanelController::class, 'product_post'])->name('product_post');
+    Route::get('/review_post', [ControlPanelController::class, 'review_post'])->name('review_post');
 
     //Forms
     Route::get('/category_edit/{id}', [ControlPanelController::class, 'category_edit']);

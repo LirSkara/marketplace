@@ -30,6 +30,7 @@ return array(
     'App\\Models\\Mrecomendations' => $baseDir . '/app/Models/Mrecomendations.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
     'App\\Models\\Puncts' => $baseDir . '/app/Models/Puncts.php',
+    'App\\Models\\Reviews' => $baseDir . '/app/Models/Reviews.php',
     'App\\Models\\Slides' => $baseDir . '/app/Models/Slides.php',
     'App\\Models\\Store' => $baseDir . '/app/Models/Store.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

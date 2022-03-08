@@ -6,8 +6,11 @@ use App\Models\Categories;
 use App\Models\Collections;
 use App\Models\Mactions;
 use App\Models\Mrecomendations;
+use App\Models\Reviews;
 use App\Models\Puncts;
+use App\Models\Product;
 use App\Models\Slides;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -176,8 +179,9 @@ class ControlPanelController extends Controller
 
     public function mrecomendations()
     {
+        $products = new Product();
         $mrecomendations = new Mrecomendations();
-        return view('control_panel.mrecomendations',['mrecomendations' => $mrecomendations->get()]);
+        return view('control_panel.mrecomendations',['mrecomendations' => $mrecomendations->get(),'products'=>$products]);
     }
 
     public function add_mrecomendation(){
@@ -194,11 +198,21 @@ class ControlPanelController extends Controller
             'product' => ['required','string']
         ]);
 
-        $review = new Mrecomendations();
-        $review->product = $data->input('product');
-        $review->save();
+        $product = Product::where('id','=',$data->input('product'))->count();
 
-        return redirect()->route('mrecomendations');
+        if($product > 0){
+            if(Mrecomendations::find($data->input('product'))->count() > 0){
+                return redirect()->route('mrecomendations');
+            } else {
+                $review = new Mrecomendations();
+                $review->product = $data->input('product');
+                $review->save();
+                return redirect()->route('mrecomendations');
+            }
+        } else {
+            return redirect()->route('mrecomendations');
+        }
+
     }
 
     public function mrecomendation_edit($id){
@@ -212,11 +226,20 @@ class ControlPanelController extends Controller
             'product' => ['required','string']
         ]);
 
-        $review = Mrecomendations::find($id);
-        $review->product = $data->input('product');
-        $review->save();
+        $product = Product::where('id','=',$data->input('product'))->count();
 
-        return redirect()->route('mrecomendations');
+        if($product > 0){
+            if(Mrecomendations::find($data->input('product'))->count() > 0){
+                return redirect()->route('mrecomendations');
+            } else {
+                $review = Mrecomendations::find($id);
+                $review->product = $data->input('product');
+                $review->save();
+                return redirect()->route('mrecomendations');
+            }
+        } else {
+            return redirect()->route('mrecomendations');
+        }
     }
 
     public function mrecomendation_delete_process($id){
@@ -344,5 +367,16 @@ class ControlPanelController extends Controller
         Storage::delete($upload_folder . '/' . $review->image);
         $review->delete();
         return redirect()->route('slider');
+    }
+
+    public function product_post(){
+        $products = Product::where('status','=',0)->get();
+        return view('control_panel.product_post',['products'=>$products]);
+    }
+
+    public function review_post(){
+        $reviews = Reviews::where('status','=',0)->get();
+        $users = new User();
+        return view('control_panel.review_post',['reviews'=>$reviews,'users'=>$users]);
     }
 }

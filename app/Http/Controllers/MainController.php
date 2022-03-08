@@ -8,6 +8,10 @@ use App\Models\Mactions;
 use Illuminate\Http\Request;
 use App\Models\Puncts;
 use App\Models\Slides;
+use App\Models\Product;
+use App\Models\Reviews;
+use App\Models\Store;
+use App\Models\User;
 
 class MainController extends Controller
 {
@@ -24,9 +28,33 @@ class MainController extends Controller
         return view('cart');
     }
 
-    public function product()
+    public function product($id)
     {
-        return view('product');
+        $product = Product::find($id);
+        $store = Store::find($product->id);
+        $reviews = Reviews::where('product', '=', $product->id);
+        $users = new User();
+        
+        return view('product',['product'=>$product,'store'=>$store,'reviews'=>$reviews->orderBy('id','desc')->get(),'users'=>$users]);
+    }
+
+    public function review_add(Request $data,$id){
+        $valid = $data->validate([
+            'text' => ['required', 'min:15', 'max:255'],
+            'star' => ['required']
+        ]);
+        
+        $user = auth()->user();
+
+        $review = new Reviews();
+        $review->user = $user->id;
+        $review->rating = $data->input('star');
+        $review->text = $data->input('text');
+        $review->product = $id;
+        $review->status = 0;
+        $review->save();
+
+        return redirect()->route('product',$id);
     }
 
     public function category($id)
@@ -36,9 +64,11 @@ class MainController extends Controller
         return view('category',['item' => $item,'c_name' => $c_name]);
     }
 
-    public function brand()
+    public function brand($id)
     {
-        return view('brand');
+        $store = Store::find($id);
+        $products = Product::where('store', '=', $id)->get();
+        return view('brand',['store'=>$store,'products'=>$products]);
     }
 
     public function favorites()
