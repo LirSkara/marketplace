@@ -21,10 +21,10 @@
                         <div class="carousel-inner">
                             <div style="display: none">{{$count = 0}}</div>
                             @foreach($slides as $slide)
-                            <a href="{{$slide->href}}" class="carousel-item @if($count == 0)active @endif">
-                                <img src="/storage/slides/{{$slide->image}}" class="d-block w-100 rounded-3" style="object-fit: cover;height:200px;" alt="...">
-                            </a>
-                            <div style="display: none">{{$count = ++$count}}</div>
+                                <a href="{{$slide->href}}" class="carousel-item @if($count == 0)active @endif">
+                                    <img src="/storage/slides/{{$slide->image}}" class="d-block w-100 rounded-3" style="object-fit: cover;height:200px;" alt="...">
+                                </a>
+                                <div style="display: none">{{$count = ++$count}}</div>
                             @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

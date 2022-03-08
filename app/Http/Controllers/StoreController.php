@@ -103,4 +103,11 @@ class StoreController extends Controller
         
         return redirect()->route('store');
     }
+
+    public function store_products(){
+        $user = auth()->user();
+        $item = Store::where('user',$user->id)->first();
+        $products = new Product();
+        return view('store.products',['item'=>$item,'products'=>$products->all()]);
+    }
 }

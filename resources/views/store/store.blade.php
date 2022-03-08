@@ -4,7 +4,7 @@
     <div class="mb-2">
 
         <div class="px-2">
-            <img src="/storage/store/cover/{{$item->image}}" class="w-100 rounded-3 action-img" alt="855960469.jpg">
+            <img src="/storage/store/cover/{{$item->image}}" class="w-100 rounded-3" alt="855960469.jpg">
         </div>
 
         <div class="px-2">

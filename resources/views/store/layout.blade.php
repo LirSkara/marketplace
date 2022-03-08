@@ -47,6 +47,9 @@
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/store" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-newspaper me-1"></i> Главная страница</span></a>
                             </li>
+                            <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
+                                <a href="/store/products/" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-newspaper me-1"></i> Мои товары</span></a>
+                            </li>
                         </ul>
                     </div>
                 </div>

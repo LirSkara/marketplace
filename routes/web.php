@@ -90,6 +90,7 @@ Route::middleware('auth','admin')->group(function () {
 Route::middleware('auth','seller')->group(function () {
     //Store
     Route::get('/store', [StoreController::class, 'index'])->name('store');
+    Route::get('/store/products', [StoreController::class, 'store_products'])->name('store_products');
 
     //Forms
     Route::get('/store_add', [StoreController::class, 'store_add']);

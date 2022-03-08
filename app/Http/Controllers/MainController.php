@@ -60,8 +60,9 @@ class MainController extends Controller
     public function category($id)
     {
         $item = Puncts::find($id);
+        $products = new Product();
         $c_name = Categories::find($item->category)->name;
-        return view('category',['item' => $item,'c_name' => $c_name]);
+        return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all()]);
     }
 
     public function brand($id)
