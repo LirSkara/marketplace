@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserProfile;
+use App\Models\Favourites;
 use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
@@ -166,5 +166,23 @@ class AuthController extends Controller
     public function activity()
     {
         return view('my.activity');
+    }
+    public function add_favourite($id)
+    {
+        $user = auth()->user();
+        $count = Favourites::where('product',$id)->count();
+        
+        if($count == 0){
+            $review = new Favourites;
+            $review->product = $id;
+            $review->user = $user->id;
+            $review->save();
+            return 1;
+        } else {
+            $id_f = Favourites::where('product',$id)->first()->id;
+            $review = Favourites::find($id_f);
+            $review->delete();
+            return 2;
+        }
     }
 }

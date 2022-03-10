@@ -142,14 +142,14 @@
                         <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
                         <div class="text-muted">Philips / Пылесос сухая / FC9733/01</div>
                         <?php
-                    $count = $reviews->where('product',$product->id)->count();
-                    $product_reviews = $reviews->where('product',$product->id)->get();
-                    $all = 0;
-                    foreach($product_reviews as $review_product){
-                        $all = $review_product->rating + $all;
-                    }
-                    $all = $all/$count;
-                ?>
+                            $count = $reviews->where('product',$product->id)->count();
+                            $product_reviews = $reviews->where('product',$product->id)->get();
+                            $all = 0;
+                            foreach($product_reviews as $review_product){
+                                $all = $review_product->rating + $all;
+                            }
+                            $all = $all/$count;
+                        ?>
                 @if($all >= 5)
                         <i class="bi bi-star-fill text-darksuccess me-1"></i>
                         <i class="bi bi-star-fill text-darksuccess me-1"></i>

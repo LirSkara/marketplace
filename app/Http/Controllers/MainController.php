@@ -11,6 +11,7 @@ use App\Models\Slides;
 use App\Models\Product;
 use App\Models\Reviews;
 use App\Models\Store;
+use App\Models\Favourites;
 use App\Models\User;
 
 class MainController extends Controller
@@ -59,10 +60,12 @@ class MainController extends Controller
 
     public function category($id)
     {
+        $reviews = new Reviews;
+        $favourites = new Favourites;
         $item = Puncts::find($id);
         $products = new Product();
         $c_name = Categories::find($item->category)->name;
-        return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all()]);
+        return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all(),'reviews'=>$reviews,'favourites'=>$favourites]);
     }
 
     public function brand($id)
@@ -75,6 +78,10 @@ class MainController extends Controller
 
     public function favorites()
     {
-        return view('favorites');
+        $reviews = new Reviews;
+        $products = new Product;
+        $user = auth()->user();
+        $favourites = new Favourites;
+        return view('favorites',['user'=>$user,'favourites'=>$favourites->all(),'products'=>$products,'reviews'=>$reviews]);
     }
 }

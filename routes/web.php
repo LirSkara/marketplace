@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/expenses', [AuthController::class, 'expenses']);
     Route::get('/purchases', [AuthController::class, 'purchases']);
     Route::get('/activity', [AuthController::class, 'activity']);
+    Route::get('/add_favourite/{id}', [AuthController::class, 'add_favourite']);
 
     Route::post('/review_add/{id}', [MainController::class, 'review_add']);
 

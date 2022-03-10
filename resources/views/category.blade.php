@@ -16,98 +16,8 @@
         <ul class="d-flex list-unstyled mt-2 mb-1 py-1 scroll-none">
             <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 ms-2 d-flex">
                     <span>Бейсболки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Бомберы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Ботинки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Брюки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Варежки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Варежки</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Ветровки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Джемперы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Комбинезоны</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Комбинезоны</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Конверты</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Костюмы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Костюмы</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Кофты</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Куртки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Манишки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Парки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Перчатки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Пинетки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Плащи</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Полукомбинезоны</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Полукомбинезоны</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Сандалии</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Сапоги</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Толстовки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Шапки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Шапки</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Шарфы</span>
-                </a></li>
+                </a>
+            </li>
         </ul>
         <div class="d-flex row">
             <div class="col-3">
@@ -140,15 +50,69 @@
                     
                 
                 <div class="col mb-2 small">
-                    <a href="/product" class="text-decoration-none text-dark">
+                    <a href="/product/{{$product->id}}" class="text-decoration-none text-dark">
                         <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
                         <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
                         <div class="text-muted">Philips / Пылесос сухая / FC9733/01</div>
-                        <div><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess"></i></div>
+                        <?php
+                            $count = $reviews->where('product',$product->id)->count();
+                            $product_reviews = $reviews->where('product',$product->id)->get();
+                            $all = 0;
+                            foreach($product_reviews as $review_product){
+                                $all = $review_product->rating + $all;
+                            }
+                            $all = $all/$count;
+                        ?>
+                @if($all >= 5)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess"></i>
+                    @elseif($all >= 4)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 3)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 2)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 1)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 0)
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @endif
                     </a>
                     <div class="mt-1">
-                        <a href="/cart" class="btn btn-darksuccess text-white py-1 me-2">В корзину</a>
-                        <button class="btn btn-light py-1"><i class="bi bi-heart text-danger fs-5"></i></button>
+                            <button class="btn btn-darksuccess text-white py-1 me-2" id="add_to_cart">В корзину</button>
+                        @if(Auth::check())
+                            @if($favourites->where('product',$product->id)->count() > 0)
+                                <button class="btn btn-light py-1" id="{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart-fill text-danger fs-5"></i></button>
+                            @else
+                                <button class="btn btn-light py-1" id="{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart text-danger fs-5"></i></button>
+                            @endif
+                        @else
+                            <button class="btn btn-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-heart text-danger fs-5"></i></button>
+                        @endif
+
                     </div>
                 </div>
                 @endif
@@ -156,6 +120,18 @@
         @endforeach
     </div>
 </div>
+
+<!-- Modal Add Favourite -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content pb-2 pt-4">
+            <h5 class="text-center mx-3" id="exampleModalLabel">Вы не авторизованы, для добавления товара в избранное.</h5>
+            <div class="m-3 text-center">
+                <a href="/login" class="btn btn-darksuccess">Войти в кабинет</a>
+            </div>
+        </div>
+    </div>
+  </div>
 
 <!-- Начало модального окна фильтер -->
 <div class="modal fade" id="exampleModalfilter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 3000;">
@@ -219,5 +195,7 @@
         </div>
     </div>
 </div>
+<script src="/js/ajax.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Конец модального окна фильтер -->
 @endsection
