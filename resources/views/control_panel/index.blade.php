@@ -18,7 +18,5 @@
         </div>
     </div>
 
-    <h1 class="h3 mb-3">Последние действия</h1>
-
 </div>
 @endsection

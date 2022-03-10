@@ -20,8 +20,8 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="bg-white pt-5 mt-3">
-    <header class="shadow-sm bg-white fixed-top" style="z-index: 2000;">
+<body class="bg-white pt-5 col-lg-6 mx-auto">
+    <header class="bg-white fixed-top col-lg-6 mx-auto" style="z-index: 2000;">
         <div class="container">
             <div class="row bg-darksuccess text-white py-2">
                 <div class="col-3 text-start px-0">
@@ -34,7 +34,7 @@
             </div>
         </div>
     </header>
-    <div class="fixed-bottom" style="z-index: 2000;">
+    <div class="fixed-bottom col-lg-6 mx-auto" style="z-index: 2000;">
         <div class="bg-light py-2 border-top">
             <div class="row text-center fs-2">
                 <a id="home" href="/" class="col text-muted"><i class="bi bi-house"></i></a>
@@ -49,6 +49,7 @@
             </div>
         </div>
     </div>
+    <div class="mt-3 mt-lg-0"></div>
     @yield('main_content')
     <div class="mb-5"></div>
 

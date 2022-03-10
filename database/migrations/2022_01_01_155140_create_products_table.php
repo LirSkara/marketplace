@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->string('store');
             $table->string('status');
+            $table->string('ostatok');
             $table->timestamps();
         });
     }

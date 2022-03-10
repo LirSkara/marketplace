@@ -11,6 +11,7 @@ use App\Models\Puncts;
 use App\Models\Product;
 use App\Models\Slides;
 use App\Models\User;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -378,5 +379,11 @@ class ControlPanelController extends Controller
         $reviews = Reviews::where('status','=',0)->get();
         $users = new User();
         return view('control_panel.review_post',['reviews'=>$reviews,'users'=>$users]);
+    }
+
+    public function store_list(){
+        $stores = new Store();
+        $product = new Product();
+        return view('control_panel.store_list',['stores'=>$stores->all(),'product'=>$product]);
     }
 }

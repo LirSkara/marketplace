@@ -50,6 +50,7 @@ Route::middleware('auth','admin')->group(function () {
     Route::get('/mrecomendations', [ControlPanelController::class, 'mrecomendations'])->name('mrecomendations');
     Route::get('/product_post', [ControlPanelController::class, 'product_post'])->name('product_post');
     Route::get('/review_post', [ControlPanelController::class, 'review_post'])->name('review_post');
+    Route::get('/store_list', [ControlPanelController::class, 'store_list'])->name('store_list');
 
     //Forms
     Route::get('/category_edit/{id}', [ControlPanelController::class, 'category_edit']);

@@ -10,7 +10,7 @@
         </ol>
     </nav>
     <div class="bg-white my-3 p-3">
-        <div class="my-5">
+        <div class="">
             <div class="row p-0">
                 <div class="col-12 col-lg-6">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -23,11 +23,11 @@
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon fs-1" aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                            <span class="carousel-control-prev-icon fs-1" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon fs-1" aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                            <span class="carousel-control-next-icon fs-1" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
@@ -46,8 +46,6 @@
                 <div class="border-top mt-3 pt-2">
                     <div class="fw-bold">Описание</div>
                     <div class="text-muted">{{$product->description}}</div>
-                    <div class="fw-bold mt-3">Параметры</div>
-                    <div class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, aut.</div>
                 </div>
             </div>
         </div>
@@ -58,7 +56,52 @@
                 <div class="fs-5">Отзывы: {{$reviews->count()}}</div>
             </div>
             <div class="col text-end">
-                <div><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess"></i></div>
+
+                <?php $all = 0;?>
+                @foreach($reviews as $review)
+                    <?php $all = $review->rating+$all ?>
+                @endforeach
+                @if($all != 0)
+                    <?php $all = $all/$reviews->count(); ?>
+                @endif
+
+                @if($all >= 5)
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess"></i>
+                @elseif($all >= 4)
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess"></i>
+                @elseif($all >= 3)
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess"></i>
+                @elseif($all >= 2)
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess"></i>
+                @elseif($all >= 1)
+                    <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess"></i>
+                @elseif($all >= 0)
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess me-1"></i>
+                    <i class="bi bi-star text-darksuccess"></i>
+                @endif
             </div>
         </div>
         @foreach($reviews as $review)

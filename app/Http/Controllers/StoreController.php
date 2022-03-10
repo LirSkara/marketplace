@@ -8,6 +8,7 @@ use App\Models\Store;
 use App\Models\Categories;
 use App\Models\Puncts;
 use App\Models\Product;
+use App\Models\Reviews;
 
 class StoreController extends Controller
 {
@@ -106,8 +107,9 @@ class StoreController extends Controller
 
     public function store_products(){
         $user = auth()->user();
+        $reviews = new Reviews;
         $item = Store::where('user',$user->id)->first();
         $products = new Product();
-        return view('store.products',['item'=>$item,'products'=>$products->all()]);
+        return view('store.products',['item'=>$item,'products'=>$products->all(),'reviews'=>$reviews]);
     }
 }

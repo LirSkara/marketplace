@@ -65,6 +65,9 @@
                             </li>
                             <div class="p-2 text-white fs-5 bg-darksuccess">Администрирование</div>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
+                                <a href="/store_list" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-shop me-1"></i> Список магазинов</span></a>
+                            </li>
+                            <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/categories" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-badge me-1"></i> Продавцы</span></a>
                             </li>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">

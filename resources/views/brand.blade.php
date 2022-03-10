@@ -13,102 +13,15 @@
             <h5 class="fw-bold me-3">{{$store->name}}</h5>
             <span class="my-auto text-muted small">Товаров {{$products->count()}}</span>
         </div>
-        <ul class="d-flex list-unstyled mt-2 mb-1 py-1 scroll-none">
+
+        {{-- Теги всех товаров --}}
+        {{-- <ul class="d-flex list-unstyled mt-2 mb-1 py-1 scroll-none">
             <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 ms-2 d-flex">
                     <span>Бейсболки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Бомберы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Ботинки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Брюки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Варежки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Варежки</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Ветровки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Джемперы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Комбинезоны</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Комбинезоны</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Конверты</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Костюмы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Костюмы</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Кофты</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Куртки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Манишки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Парки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Перчатки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Пинетки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Плащи</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Полукомбинезоны</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Полукомбинезоны</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Сандалии</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Сапоги</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Толстовки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Шапки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Шапки</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Шарфы</span>
-                </a></li>
-        </ul>
+                </a>
+            </li>
+        </ul> --}}
+
         <div class="d-flex row">
             <div class="col-3">
                 <button id="two" class="btn btn-none px-0"><i id="itemtwo" class="bi bi-microsoft fs-5 text-darksuccess"></i></button>
@@ -134,10 +47,55 @@
         @foreach($products as $product)
         <div class="col mb-2 small">
             <a href="/product/{{$product->id}}" class="text-decoration-none text-dark">
-                <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..."></div>
+                <div class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px;"></div>
                 <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span><span class="text-muted text-decoration-line-through">старая цена</span></div>
                 <div class="text-muted">{{$product->name}}</div>
-                <div><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess"></i></div>
+                <?php
+                    $count = $reviews->where('product',$product->id)->count();
+                    $product_reviews = $reviews->where('product',$product->id)->get();
+                    $all = 0;
+                    foreach($product_reviews as $review_product){
+                        $all = $review_product->rating + $all;
+                    }
+                    $all = $all/$count;
+                ?>
+                @if($all >= 5)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess"></i>
+                    @elseif($all >= 4)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 3)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 2)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 1)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 0)
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @endif
             </a>
             <div class="mt-1">
                 <a href="/cart" class="btn btn-darksuccess text-white py-1">В корзину</a>

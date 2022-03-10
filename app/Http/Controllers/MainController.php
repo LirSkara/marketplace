@@ -31,7 +31,7 @@ class MainController extends Controller
     public function product($id)
     {
         $product = Product::find($id);
-        $store = Store::find($product->id);
+        $store = Store::find($product->store)->first();
         $reviews = Reviews::where('product', '=', $product->id);
         $users = new User();
         
@@ -67,9 +67,10 @@ class MainController extends Controller
 
     public function brand($id)
     {
+        $reviews = new Reviews;
         $store = Store::find($id);
         $products = Product::where('store', '=', $id)->get();
-        return view('brand',['store'=>$store,'products'=>$products]);
+        return view('brand',['store'=>$store,'products'=>$products,'reviews'=>$reviews]);
     }
 
     public function favorites()

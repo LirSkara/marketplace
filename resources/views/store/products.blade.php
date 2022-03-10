@@ -141,7 +141,52 @@
                         <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
                         <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
                         <div class="text-muted">Philips / Пылесос сухая / FC9733/01</div>
-                        <div><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess me-1"></i><i class="bi bi-star-fill text-darksuccess"></i></div>
+                        <?php
+                    $count = $reviews->where('product',$product->id)->count();
+                    $product_reviews = $reviews->where('product',$product->id)->get();
+                    $all = 0;
+                    foreach($product_reviews as $review_product){
+                        $all = $review_product->rating + $all;
+                    }
+                    $all = $all/$count;
+                ?>
+                @if($all >= 5)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess"></i>
+                    @elseif($all >= 4)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 3)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 2)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 1)
+                        <i class="bi bi-star-fill text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @elseif($all >= 0)
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess me-1"></i>
+                        <i class="bi bi-star text-darksuccess"></i>
+                    @endif
                     </a>
                     <div class="mt-1">
                         <a href="/cart" class="btn btn-warning text-white py-1">Ред.</a>
