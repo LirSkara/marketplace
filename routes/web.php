@@ -13,11 +13,13 @@ Route::get('/cart', [MainController::class, 'cart']);
 Route::get('/product/{id}', [MainController::class, 'product'])->name('product');
 Route::get('/category/{id}', [MainController::class, 'category']);
 Route::get('/brand/{id}', [MainController::class, 'brand']);
+Route::get('/order_one/{id}', [MainController::class, 'order_one']);
 Route::get('/favorites', [MainController::class, 'favorites']);
 //Auth routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login_process']);
 Route::post('/register', [AuthController::class, 'register_process']);
+Route::get('/add_to_cart/{id}', [MainController::class, 'add_to_cart']);
 
 Route::middleware('auth')->group(function () {
     //Main

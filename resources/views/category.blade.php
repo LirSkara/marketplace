@@ -102,12 +102,16 @@
                     @endif
                     </a>
                     <div class="mt-1">
-                            <button class="btn btn-darksuccess text-white py-1 me-2" id="add_to_cart">В корзину</button>
+                        @if(Auth::check())
+                            <button class="btn btn-darksuccess text-white py-1 me-2" id="c{{$product->id}}" onclick="give_cart(this.id)">В корзину</button>
+                        @else
+                            <a href="/order_one/{{$product->id}}" class="btn btn-darksuccess text-white py-1 me-2">Купить</a>
+                        @endif
                         @if(Auth::check())
                             @if($favourites->where('product',$product->id)->count() > 0)
-                                <button class="btn btn-light py-1" id="{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart-fill text-danger fs-5"></i></button>
+                                <button class="btn btn-light py-1" id="f{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart-fill text-danger fs-5"></i></button>
                             @else
-                                <button class="btn btn-light py-1" id="{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart text-danger fs-5"></i></button>
+                                <button class="btn btn-light py-1" id="f{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart text-danger fs-5"></i></button>
                             @endif
                         @else
                             <button class="btn btn-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-heart text-danger fs-5"></i></button>

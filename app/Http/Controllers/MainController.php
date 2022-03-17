@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Response;
 
 use App\Models\Categories;
 use App\Models\Collections;
@@ -83,5 +84,14 @@ class MainController extends Controller
         $user = auth()->user();
         $favourites = new Favourites;
         return view('favorites',['user'=>$user,'favourites'=>$favourites->all(),'products'=>$products,'reviews'=>$reviews]);
+    }
+
+    public function order_one($id){
+        $product = Product::find($id);
+        return view('order_one',['product'=>$product]);
+    }
+
+    public function add_to_cart($id){
+        return 1;
     }
 }
