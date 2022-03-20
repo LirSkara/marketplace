@@ -39,7 +39,11 @@
                             <span class="fs-2">{{$product->price}} ₽</span>
                         </div>
                         <div class="col-12 col-lg-6 mt-2 mt-lg-0">
-                            <button class="btn btn-lg btn-darksuccess btn-custom"><i class="bi bi-bag-plus"></i> Добавить в корзину</button>
+                            @if(Auth::check())
+                            <button class="btn btn-lg btn-darksuccess btn-custom" id="c{{$product->id}}" onclick="give_cart(this.id)"><i class="bi bi-bag-plus"></i> Добавить в корзину</button>
+                        @else
+                            <a href="/order_one/{{$product->id}}" class="btn btn-lg btn-darksuccess btn-custom" id="c{{$product->id}}" onclick="give_cart(this.id)"><i class="bi bi-bag-plus"></i> Купить сейчас</a>
+                        @endif
                         </div>
                     </div>
                 </div>

@@ -544,6 +544,7 @@ class ComposerStaticInit9d2fe082e925d09f14327fac7966ba32
         'App\\Models\\Favourites' => __DIR__ . '/../..' . '/app/Models/Favourites.php',
         'App\\Models\\Mactions' => __DIR__ . '/../..' . '/app/Models/Mactions.php',
         'App\\Models\\Mrecomendations' => __DIR__ . '/../..' . '/app/Models/Mrecomendations.php',
+        'App\\Models\\OrderOne' => __DIR__ . '/../..' . '/app/Models/OrderOne.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\Puncts' => __DIR__ . '/../..' . '/app/Models/Puncts.php',
         'App\\Models\\Reviews' => __DIR__ . '/../..' . '/app/Models/Reviews.php',

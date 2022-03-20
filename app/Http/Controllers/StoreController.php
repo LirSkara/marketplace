@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\Puncts;
 use App\Models\Product;
 use App\Models\Reviews;
+use App\Models\OrderOne;
 
 class StoreController extends Controller
 {
@@ -110,6 +111,18 @@ class StoreController extends Controller
         $reviews = new Reviews;
         $item = Store::where('user',$user->id)->first();
         $products = new Product();
-        return view('store.products',['item'=>$item,'products'=>$products->all(),'reviews'=>$reviews]);
+        $productst = new Product();
+        return view('store.products',['item'=>$item,'products'=>$products->all(),'productst'=>$productst,'reviews'=>$reviews]);
+    }
+
+    public function orders(){
+        $one = new OrderOne;
+        $product = new Product;
+        $store = new Store;
+        return view('store.orders',[
+            'one_orders'=>$one->all(),
+            'product'=>$product,
+            'store'=>$store
+        ]);
     }
 }

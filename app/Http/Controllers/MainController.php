@@ -14,6 +14,7 @@ use App\Models\Reviews;
 use App\Models\Store;
 use App\Models\Favourites;
 use App\Models\User;
+use App\Models\OrderOne;
 
 class MainController extends Controller
 {
@@ -88,7 +89,28 @@ class MainController extends Controller
 
     public function order_one($id){
         $product = Product::find($id);
-        return view('order_one',['product'=>$product]);
+        $store = Store::find($product->store)->first();
+        return view('order_one',['product'=>$product,'store'=>$store]);
+    }
+
+    public function order_one_p(Request $request, $id){
+        $valid = $request->validate([
+            'kolvo' => ['required','string'],
+            'firstname' => ['required','string'],
+            'lastname' => ['required','string'],
+            'sposob' => ['required','string'],
+            'tel' => ['required','string'],
+        ]);
+        $price = Product::find($id)->price;
+        $review = new OrderOne;
+        $review->product = $id;
+        $review->kolvo = $request->input('kolvo');
+        $review->summ = $price*$request->input('kolvo');
+        $review->firstname = $request->input('firstname');
+        $review->lastname = $request->input('lastname');
+        $review->sposob = $request->input('sposob');
+        $review->tel = $request->input('tel');
+        $review->save();
     }
 
     public function add_to_cart($id){

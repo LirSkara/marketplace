@@ -10,126 +10,7 @@
         </nav>
         <div class="d-flex">
             <h5 class="fw-bold me-3">{{$item->name}}</h5>
-            <span class="my-auto text-muted small">0 товаров</span>
-        </div>
-        <ul class="d-flex list-unstyled mt-2 mb-1 py-1 scroll-none">
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 ms-2 d-flex">
-                    <span>Бейсболки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Бомберы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Ботинки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Брюки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Варежки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Варежки</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Ветровки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Джемперы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Комбинезоны</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Комбинезоны</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Конверты</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Костюмы</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Костюмы</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Кофты</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Куртки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Манишки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Парки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Перчатки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Пинетки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Плащи</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Полукомбинезоны</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Полукомбинезоны</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Сандалии</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Сапоги</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Толстовки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Шапки</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span class="me-1">Шапки</span>
-                    <span class="me-1">для</span>
-                    <span>малышей</span>
-                </a></li>
-            <li><a href="" class="text-dark text-decoration-none border border-1 rounded-3 py-1 px-2 me-2 d-flex">
-                    <span>Шарфы</span>
-                </a></li>
-        </ul>
-        <div class="d-flex row">
-            <div class="col-3">
-                <button id="two" class="btn btn-none px-0"><i id="itemtwo" class="bi bi-microsoft fs-5 text-darksuccess"></i></button>
-                <button id="one" class="btn btn-none px-0"><i id="itemone" class="bi bi-view-list fs-5 text-muted"></i></button>
-            </div>
-            <div class="col my-auto text-center">
-                <button id="sort" class="btn btn-none" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span>По популярности</span>
-                    <i id="down" class="bi bi-caret-down-fill down-custom"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <li><a class="dropdown-item" href="#">По популярности</a></li>
-                    <li><a class="dropdown-item" href="#">По рейтингу</a></li>
-                    <li><a class="dropdown-item" href="#">По цене max</a></li>
-                    <li><a class="dropdown-item" href="#">По цене min</a></li>
-                    <li><a class="dropdown-item" href="#">По скидке</a></li>
-                    <li><a class="dropdown-item" href="#">По обновлению</a></li>
-                </ul>
-            </div>
-            <div class="col-3 text-end">
-                <button class="btn px-0 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModalfilter"><i class="bi bi-sliders fs-5 text-darksuccess"></i></button>
-            </div>
+            <span class="my-auto text-muted small"></span>
         </div>
     </div>
     <div id="rows" class="row g-3 row-cols-2 mt-0 px-2">
@@ -139,10 +20,11 @@
                 <div class="col mb-2 small">
                     <a href="/product" class="text-decoration-none text-dark">
                         <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
-                        <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
-                        <div class="text-muted">Philips / Пылесос сухая / FC9733/01</div>
+                        <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
+                        <div class="text-muted">{{$product->name}}</div>
                         <?php
                             $count = $reviews->where('product',$product->id)->count();
+                            if($count == 0){$count = 1;}
                             $product_reviews = $reviews->where('product',$product->id)->get();
                             $all = 0;
                             foreach($product_reviews as $review_product){
@@ -188,6 +70,9 @@
                         <i class="bi bi-star text-darksuccess"></i>
                     @endif
                     </a>
+                    @if($product->status == 0)
+                    <div class="text-danger small">На модерации</div>
+                    @endif
                     <div class="mt-1">
                         <a href="/cart" class="btn btn-warning text-white py-1">Ред.</a>
                         <button class="btn btn-danger py-1">Удалить</button>

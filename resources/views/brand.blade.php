@@ -33,7 +33,6 @@
                     <i id="down" class="bi bi-caret-down-fill down-custom"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <li><a class="dropdown-item" href="#">По популярности</a></li>
                     <li><a class="dropdown-item" href="#">Сначала недорогие</a></li>
                     <li><a class="dropdown-item" href="#">Сначала дорогие</a></li>
                 </ul>
@@ -45,10 +44,11 @@
     </div>
     <div id="rows" class="row g-3 row-cols-2 mt-0 px-2">
         @foreach($products as $product)
+        @if ($product->status == 1)
         <div class="col mb-2 small">
             <a href="/product/{{$product->id}}" class="text-decoration-none text-dark">
                 <div class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px;"></div>
-                <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span><span class="text-muted text-decoration-line-through">старая цена</span></div>
+                <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
                 <div class="text-muted">{{$product->name}}</div>
                 <?php
                     $count = $reviews->where('product',$product->id)->count();
@@ -102,6 +102,7 @@
                 <button class="btn btn-light py-1"><i class="bi bi-heart text-danger fs-5"></i></button>
             </div>
         </div>
+        @endif
         @endforeach
     </div>
 </div>
