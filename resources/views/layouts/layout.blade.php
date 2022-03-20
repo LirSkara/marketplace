@@ -20,21 +20,29 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="bg-white pt-5 col-lg-6 mx-auto">
-    <header class="bg-white fixed-top col-lg-6 mx-auto" style="z-index: 2000;">
-        <div class="container">
-            <div class="row bg-darksuccess text-white py-2">
-                <div class="col-3 text-start px-0">
+<body class="bg-white pt-5">
+    <header class="bg-white fixed-top mx-auto" style="z-index: 5000;">
+        <div class="container-fluid">
+            <div class="row bg-darksuccess text-white py-2 px-lg-5  ">
+                <div class="col-3 col-lg-1 text-start width-col-start px-0">
                     <button id="menu" class="fs-2 btn btn-none py-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModalmenu"><i id="men" class="fa fa-bars" aria-hidden="true"></i></button>
                 </div>
-                <a href="/" class="col-6 fs-2 text-center text-white text-decoration-none">MARKETPLACE</a>
-                <div class="col-3 text-end px-0">
-                    <button class="fs-2 btn btn-none py-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModalsearch"><i class="fa fa-search me-1" aria-hidden="true"></i></button>
+                <a href="/" class="col-6 col-lg-2 fs-2 col-center text-white text-decoration-none">MARKETPLACE</a>
+                <div class="col-3 col-lg-9 text-end width-col-end px-0">
+                    <input type="text" class="header-search py-2 px-4 shadow-sm me-5" placeholder="Я ищу..." data-bs-toggle="modal" data-bs-target="#staticBackdropsearch">
+                    @if(Auth::check())
+                        <a id="cabinet" href="/cabinet" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
+                    @else
+                        <a id="sign_in" href="/login" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
+                    @endif              
+                    <a id="heart" href="/favorites" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-bookmark-heart"></i></a>
+                    <a id="cart" href="/cart" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-cart4"></i></a>
+                    <button class="fs-2 btn btn-none py-0 text-white display-top-search" data-bs-toggle="modal" data-bs-target="#exampleModalsearch"><i class="fa fa-search me-1" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
     </header>
-    <div class="fixed-bottom col-lg-6 mx-auto" style="z-index: 2000;">
+    <div class="fixed-bottom mx-auto display-header-bottom" style="z-index: 2000;">
         <div class="bg-light py-2 border-top">
             <div class="row text-center fs-2">
                 <a id="home" href="/" class="col text-muted"><i class="bi bi-house"></i></a>
@@ -55,7 +63,7 @@
 
     <!-- Начало модального окна меню -->
     <div class="modal fade" id="exampleModalmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-dialog modal-fullscreen-sm-down" style="position: fixed; left: 0px; min-width: 400px;">
             <div class="modal-content rounded-5 shadow">
                 <div class="modal-body pt-0 px-0">
                     <div class="container mt-3 pt-5 px-1">
@@ -94,12 +102,12 @@
     <!-- Конец модального окна меню -->
 
     <!-- Начало модального окна поиск -->
-    <div class="modal fade" id="exampleModalsearch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 3000;">
-        <div class="modal-dialog modal-fullscreen-sm-down">
+    <div class="modal fade" id="staticBackdropsearch" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="z-index: 3000">
+        <div class="modal-dialog modal-fullscreen-sm-down" style="position: fixed; left: 35%; top: 30px; min-width: 700px;">
             <div class="modal-content rounded-5 shadow">
                 <div class="modal-body pt-0">
                     <div class="container mt-3 px-0">
-                        <div class="d-flex">
+                        <div class="d-flex display-modal-search">
                             <input id="search" type="text" class="search-custom">
                             <button id="close_custom" class="item-custom btn btn-none="><i id="itemclose" class="bi bi-search text-muted itemposition-custom"></i></button>
                             <div><button class="btn btn-none text-darksuccess" data-bs-dismiss="modal" aria-label="Close">Отмена</button></div>

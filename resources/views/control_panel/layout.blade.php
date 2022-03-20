@@ -22,13 +22,13 @@
 
 <body class="bg-white pt-5 mt-3">
     <header class="shadow-sm bg-white fixed-top" style="z-index: 2000;">
-        <div class="container">
-            <div class="row bg-darksuccess text-white py-2">
-                <div class="col-3 text-start px-0">
+        <div class="container-fluid px-0">
+            <div class="d-flex bg-darksuccess text-white py-2 px-lg-5 mx-0">
+                <div class="px-0">
                     <button id="menu" class="fs-2 btn btn-none py-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModalmenu"><i id="men" class="fa fa-bars" aria-hidden="true"></i></button>
                 </div>
-                <a href="/control_panel" class="col-6 fs-5 pt-1 text-center text-white text-decoration-none">Управление</a>
-                <div class="col-3 text-end px-0">
+                <a href="/control_panel" class="center-auto fs-3 text-white text-decoration-none">Управление</a>
+                <div class="px-0">
                     <a href="/cabinet" class="fs-2 btn btn-none py-0 text-white"><i class="bi bi-box-arrow-right"></i></a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
 
     <!-- Начало модального окна меню -->
     <div class="modal fade" id="exampleModalmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-dialog modal-fullscreen-sm-down" style="position: fixed; left: 0px; min-width: 400px;">
             <div class="modal-content">
                 <div class="modal-body pt-0 px-0">
                     <div class="container mt-1 px-0 pt-5">
