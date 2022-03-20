@@ -14,6 +14,7 @@ Route::get('/product/{id}', [MainController::class, 'product'])->name('product')
 Route::get('/category/{id}', [MainController::class, 'category']);
 Route::get('/brand/{id}', [MainController::class, 'brand']);
 Route::get('/order_one/{id}', [MainController::class, 'order_one']);
+Route::post('/order_one/{id}', [MainController::class, 'order_one_p']);
 Route::get('/favorites', [MainController::class, 'favorites']);
 //Auth routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth','admin')->group(function () {
     //Control Panel
     Route::get('/control_panel', [ControlPanelController::class, 'index'])->name('c_p');
+    Route::get('/orders', [ControlPanelController::class, 'orders'])->name('orders');
     Route::get('/cp_categories', [ControlPanelController::class, 'categories'])->name('c_p_categories');
     Route::get('/slider', [ControlPanelController::class, 'slider'])->name('slider');
     Route::get('/collections', [ControlPanelController::class, 'collections'])->name('collections');
@@ -95,6 +97,7 @@ Route::middleware('auth','seller')->group(function () {
     //Store
     Route::get('/store', [StoreController::class, 'index'])->name('store');
     Route::get('/store/products', [StoreController::class, 'store_products'])->name('store_products');
+    Route::get('/store/orders', [StoreController::class, 'orders'])->name('store_orders');
 
     //Forms
     Route::get('/store_add', [StoreController::class, 'store_add']);

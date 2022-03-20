@@ -73,6 +73,9 @@
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/categories" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-workspace me-1"></i> Управляющий персонал</span></a>
                             </li>
+                            <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
+                                <a href="/orders" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-workspace me-1"></i> Новые заказы</span></a>
+                            </li>
                             <div class="p-2 text-white fs-5 bg-darksuccess">Управление</div>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/product_post" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-layout-text-window-reverse"></i> Продукты на проверке</span></a>

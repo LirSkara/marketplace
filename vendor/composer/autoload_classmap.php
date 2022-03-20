@@ -29,6 +29,7 @@ return array(
     'App\\Models\\Favourites' => $baseDir . '/app/Models/Favourites.php',
     'App\\Models\\Mactions' => $baseDir . '/app/Models/Mactions.php',
     'App\\Models\\Mrecomendations' => $baseDir . '/app/Models/Mrecomendations.php',
+    'App\\Models\\OrderOne' => $baseDir . '/app/Models/OrderOne.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
     'App\\Models\\Puncts' => $baseDir . '/app/Models/Puncts.php',
     'App\\Models\\Reviews' => $baseDir . '/app/Models/Reviews.php',

@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\Slides;
 use App\Models\User;
 use App\Models\Store;
+use App\Models\OrderOne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -385,5 +386,16 @@ class ControlPanelController extends Controller
         $stores = new Store();
         $product = new Product();
         return view('control_panel.store_list',['stores'=>$stores->all(),'product'=>$product]);
+    }
+
+    public function orders(){
+        $one = new OrderOne;
+        $product = new Product;
+        $store = new Store;
+        return view('control_panel.orders',[
+            'one_orders'=>$one->all(),
+            'product'=>$product,
+            'store'=>$store
+        ]);
     }
 }

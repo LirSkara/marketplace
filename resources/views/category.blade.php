@@ -30,12 +30,8 @@
                     <i id="down" class="bi bi-caret-down-fill down-custom"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <li><a class="dropdown-item" href="#">По популярности</a></li>
-                    <li><a class="dropdown-item" href="#">По рейтингу</a></li>
-                    <li><a class="dropdown-item" href="#">По цене max</a></li>
-                    <li><a class="dropdown-item" href="#">По цене min</a></li>
-                    <li><a class="dropdown-item" href="#">По скидке</a></li>
-                    <li><a class="dropdown-item" href="#">По обновлению</a></li>
+                    <li><a class="dropdown-item" href="#">Сначала недорогие</a></li>
+                    <li><a class="dropdown-item" href="#">Сначала дорогие</a></li>
                 </ul>
             </div>
             <div class="col-3 text-end">
@@ -52,10 +48,11 @@
                 <div class="col mb-2 small">
                     <a href="/product/{{$product->id}}" class="text-decoration-none text-dark">
                         <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
-                        <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
-                        <div class="text-muted">Philips / Пылесос сухая / FC9733/01</div>
+                        <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
+                        <div class="text-muted">{{$product->name}}</div>
                         <?php
                             $count = $reviews->where('product',$product->id)->count();
+                            if($count == 0){$count = 1;}
                             $product_reviews = $reviews->where('product',$product->id)->get();
                             $all = 0;
                             foreach($product_reviews as $review_product){
@@ -199,7 +196,5 @@
         </div>
     </div>
 </div>
-<script src="/js/ajax.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Конец модального окна фильтер -->
 @endsection
