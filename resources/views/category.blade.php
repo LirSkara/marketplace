@@ -21,11 +21,11 @@
         </ul>
         <div class="d-flex row">
             <div class="col-3">
-                <button id="two" class="btn btn-none px-0"><i id="itemtwo" class="bi bi-microsoft fs-5 text-darksuccess"></i></button>
-                <button id="one" class="btn btn-none px-0"><i id="itemone" class="bi bi-view-list fs-5 text-muted"></i></button>
+                <button onclick="two(this.id)" id="two" class="btn btn-none px-0"><i id="itemtwo" class="bi bi-microsoft fs-5 text-darksuccess"></i></button>
+                <button onclick="one(this.id)" id="one" class="btn btn-none px-0"><i id="itemone" class="bi bi-view-list fs-5 text-muted"></i></button>
             </div>
             <div class="col my-auto text-center">
-                <button id="sort" class="btn btn-none" data-bs-toggle="dropdown" aria-expanded="false">
+                <button onclick="sort(this.id)" id="sort" class="btn btn-none" data-bs-toggle="dropdown" aria-expanded="false">
                     <span>По популярности</span>
                     <i id="down" class="bi bi-caret-down-fill down-custom"></i>
                 </button>

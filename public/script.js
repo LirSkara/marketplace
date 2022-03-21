@@ -1,5 +1,4 @@
-menu.onclick = function() {
-    detailed_close.click()
+function menu(name) {
     let men = document.getElementById('men')
     let modal = document.getElementById('exampleModalmenu')
     if (modal.hasAttribute('style')) {
@@ -37,12 +36,13 @@ menu.onclick = function() {
     }
 }
 
-catalog.onclick = function() {
-    menu.click()
+function catalog(name) {
+
+    document.getElementById('menu').click()
 }
 
-search.oninput = function() {
-    let poisk = document.getElementById('search').value
+function search(name) {
+    let poisk = document.getElementById(name).value
     if (poisk != '') {
         itemclose.classList.remove('bi-search')
         itemclose.classList.add('bi-x-lg')
@@ -52,13 +52,13 @@ search.oninput = function() {
     }
 }
 
-close_custom.onclick = function() {
+function close_custom(name) {
     let poisk = document.getElementById('search').value = ''
     itemclose.classList.remove('bi-x-lg')
     itemclose.classList.add('bi-search')
 }
 
-two.onclick = function() {
+function two(name) {
     let rows = document.getElementById('rows')
     rows.classList.remove('row-cols-1')
     rows.classList.add('row-cols-2')
@@ -66,9 +66,9 @@ two.onclick = function() {
     itemone.classList.add('text-muted')
     itemtwo.classList.remove('text-muted')
     itemtwo.classList.add('text-darksuccess')
-    document.getElementById('two').id = 'one'
+    document.getElementById(name).id = 'one'
 }
-one.onclick = function() {
+function one(name) {
     let rows = document.getElementById('rows')
     rows.classList.remove('row-cols-2')
     rows.classList.add('row-cols-1')
@@ -76,14 +76,29 @@ one.onclick = function() {
     itemtwo.classList.add('text-muted')
     itemone.classList.remove('text-muted')
     itemone.classList.add('text-darksuccess')
-    document.getElementById('one').id = 'two'
+    document.getElementById(name).id = 'two'
 }
 
-sort.onclick = function() {
+function sort(name) {
     let down = document.getElementById('down')
     if (down.className == 'bi bi-caret-down-fill down-custom')
         down.classList.add('down-animation')
     else {
         down.classList.remove('down-animation')
+    }
+}
+
+function s_line(name) {
+    let poisk = document.getElementById(name).value
+    if(poisk != ''){
+        $.ajax({    
+            type: "GET",
+            url: `/search/${poisk}`,
+            method: 'get',
+            dataType: 'html',
+            success: function(data) {
+                document.getElementById('search_area').innerHTML = data
+            }
+        })
     }
 }

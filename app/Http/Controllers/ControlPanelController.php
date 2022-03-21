@@ -311,6 +311,25 @@ class ControlPanelController extends Controller
         return redirect()->route('c_p_categories');
     }
 
+    public function edit_punct($id, Request $data)
+    {
+        $valid = $data->validate([
+            'name' => ['required', 'min:3', 'max:15', 'string']
+        ]);
+
+        $punct = Puncts::find($id);
+        $punct->name = $data->input('name');
+        $punct->save();
+
+        return redirect()->route('c_p_categories');
+    }
+
+    public function delete_punct($id)
+    {
+        Puncts::find($id)->delete();
+        return redirect()->route('c_p_categories');
+    }
+
     public function add_slide(){
         return view('control_panel.forms.add_slide');
     }

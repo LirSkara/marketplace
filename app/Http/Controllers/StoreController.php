@@ -98,6 +98,7 @@ class StoreController extends Controller
         $review->price = $data->input('price');
         $review->store = $store->id;
         $review->status = 0;
+        $review->ostatok = '';
         $review->save();
         Storage::putFileAs($upload_folder, $file, $filename);
         

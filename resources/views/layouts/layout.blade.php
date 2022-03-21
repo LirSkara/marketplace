@@ -25,11 +25,11 @@
         <div class="container-fluid">
             <div class="row bg-darksuccess text-white py-2 px-lg-5  ">
                 <div class="col-3 col-lg-1 text-start width-col-start px-0">
-                    <button id="menu" class="fs-2 btn btn-none py-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModalmenu"><i id="men" class="fa fa-bars" aria-hidden="true"></i></button>
+                    <button onclick="menu(this.id)" id="menu" class="fs-2 btn btn-none py-0 text-white" data-bs-toggle="modal" data-bs-target="#exampleModalmenu"><i id="men" class="fa fa-bars" aria-hidden="true"></i></button>
                 </div>
                 <a href="/" class="col-6 col-lg-2 fs-2 col-center text-white text-decoration-none">MARKETPLACE</a>
                 <div class="col-3 col-lg-9 text-end width-col-end px-0">
-                    <input type="text" class="header-search py-2 px-4 shadow-sm me-5" placeholder="Я ищу..." data-bs-toggle="modal" data-bs-target="#staticBackdropsearch">
+                    <input type="search" oninput="s_line(this.id)" id="search" class="header-search py-2 px-4 shadow-sm me-5" placeholder="Я ищу..." data-bs-toggle="modal" data-bs-target="#staticBackdropsearch">
                     @if(Auth::check())
                         <a id="cabinet" href="/cabinet" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
                     @else
@@ -46,7 +46,7 @@
         <div class="bg-light py-2 border-top">
             <div class="row text-center fs-2">
                 <a id="home" href="/" class="col text-muted"><i class="bi bi-house"></i></a>
-                <a id="catalog" class="col text-muted"><i class="bi bi-menu-button-wide-fill"></i></a>
+                <a onclick="catalog(this.id)" id="catalog" class="col text-muted" style="cursor: pointer;"><i class="bi bi-menu-button-wide-fill"></i></a>
                 @if(Auth::check())
                 <a id="cabinet" href="/cabinet" class="col text-white bg-darksuccess rounded"><i class="bi bi-person-fill"></i></a>
                 @else
@@ -76,7 +76,7 @@
                                     <span style="position: relative; top:4px;">{{$item->name}}</span>
                                     <i class="bi bi-chevron-down text-muted ms-auto my-auto fs-5"></i>
                                 </a>
-                                <div class="collapse show" id="cat{{$item->id}}" style="">
+                                <div class="collapse show" id="cat{{$item->id}}">
                                 @foreach($puncts as $punct)
                                     @if($punct->category == $item->id)
                                     <a href="/category/{{$punct->id}}" class="px-3 text-dark text-decoration-none d-flex py-2">
@@ -112,24 +112,7 @@
                             <button id="close_custom" class="item-custom btn btn-none="><i id="itemclose" class="bi bi-search text-muted itemposition-custom"></i></button>
                             <div><button class="btn btn-none text-darksuccess" data-bs-dismiss="modal" aria-label="Close">Отмена</button></div>
                         </div>
-                        <ul class="list-group">
-                            <li class="list-group-item border-0 px-0">
-                                <i class="bi bi-search text-muted me-2"></i>
-                                <a href="#" class="text-dark text-decoration-none">cоль для ванн Ultra-c</a>
-                            </li>
-                            <li class="list-group-item border-0 px-0">
-                                <i class="bi bi-search text-muted me-2"></i>
-                                <a href="#" class="text-dark text-decoration-none">платье DeMUR</a>
-                            </li>
-                            <li class="list-group-item border-0 px-0">
-                                <i class="bi bi-search text-muted me-2"></i>
-                                <a href="#" class="text-dark text-decoration-none">пижама MARFAWOMEN</a>
-                            </li>
-                            <li class="list-group-item border-0 px-0">
-                                <i class="bi bi-search text-muted me-2"></i>
-                                <a href="#" class="text-dark text-decoration-none">джинсы A1FA</a>
-                            </li>
-                        </ul>
+                        <div id="search_area"></div>
                     </div>
                 </div>
             </div>

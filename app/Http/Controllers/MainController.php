@@ -116,4 +116,9 @@ class MainController extends Controller
     public function add_to_cart($id){
         return 1;
     }
+
+    public function search($poisk) {
+        $search = new Product;
+        return view('search', ['search' => $search->all(),'poisk'=>$poisk]);
+    }
 }

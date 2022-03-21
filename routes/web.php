@@ -22,6 +22,8 @@ Route::post('/login', [AuthController::class, 'login_process']);
 Route::post('/register', [AuthController::class, 'register_process']);
 Route::get('/add_to_cart/{id}', [MainController::class, 'add_to_cart']);
 
+Route::get('/search/{poisk}', [MainController::class, 'search']);
+
 Route::middleware('auth')->group(function () {
     //Main
     Route::get('/exit', [AuthController::class, 'exit']);
@@ -91,6 +93,8 @@ Route::middleware('auth','admin')->group(function () {
     Route::get('/cp_delete_slide/{id}', [ControlPanelController::class, 'delete_slide_process']);
     //Puncts
     Route::post('/punkt_add/{category}', [ControlPanelController::class, 'punkt_add_process']);
+    Route::post('/edit_punct/{id}', [ControlPanelController::class, 'edit_punct']);
+    Route::get('/delete_punct/{id}', [ControlPanelController::class, 'delete_punct']);
 });
 
 Route::middleware('auth','seller')->group(function () {

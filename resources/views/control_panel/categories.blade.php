@@ -18,12 +18,54 @@
                 <i class="{{$item->icon}} text-muted me-2"></i> {{$item->name}} <i class="bi bi-chevron-down text-muted ms-auto my-auto"></i>
             </a>
             <div class="collapse" id="cat{{$item->id}}">
-                @foreach($puncts as $punct)
-                    @if($punct->category == $item->id)
-                    <a class="px-3 text-dark text-decoration-none d-flex py-2">
-                        {{$punct->name}} <i class="bi bi-trash text-danger ms-auto my-auto me-3"></i><i class="bi bi-pencil-square me-1 text-warning"></i>
-                    </a>
-                    @endif
+                @foreach($puncts->where('category', $item->id) as $punct)
+                    <div class="px-3 text-dark text-decoration-none d-flex py-2">
+                        {{$punct->name}} 
+                        <button class="btn py-0 ms-auto" data-bs-toggle="modal" data-bs-target="#editpunct{{$punct->id}}"><i class="bi bi-pencil text-warning"></i></button>
+                        <button class="btn py-0"  data-bs-toggle="modal" data-bs-target="#deletepunct{{$punct->id}}"><i class="bi bi-trash text-danger"></i></button>
+                    </div>
+
+                    <!-- Modal Edit punkt -->
+                    <div class="modal fade" id="editpunct{{$punct->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex border-0">
+                                    <h3 class="modal-title ms-auto" id="exampleModalLabel">Редактировать подкатегорию</h3>
+                                    <button type="button" class="btn-close fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/edit_punct/{{$punct->id}}" method="POST">
+                                    @csrf
+
+                                        <div class="form-floating mt-2">
+                                            <input type="text" name="name" value="{{$punct->name}}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Название подкатегории</label>
+                                        </div>
+
+                                        <button class="btn btn-lg bg-darksuccess text-white mt-2 w-100">Редактировать</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal delete punkt -->
+                    <div class="modal fade" id="deletepunct{{$punct->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="width: 400px;">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="d-flex flex-column">
+                                        <h4>Подтверждение</h4>
+                                        <div>Вы действительно хотите удалить эту категорию? Отменить это действие будет невозможно</div>
+                                        <div class="d-flex gap-3 ms-auto mt-1">
+                                            <a href="/delete_punct/{{$punct->id}}" class="text-dark py-2 px-1">Да</a>
+                                            <button class="btn px-1" data-bs-dismiss="modal">Нет</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
                 
                 <div class="row g-0 small">
