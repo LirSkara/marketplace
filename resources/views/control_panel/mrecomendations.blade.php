@@ -8,23 +8,23 @@
       @foreach($mrecomendations as $item)
         <div class="col mb-2 small">
             <a href="/product/1" class="text-decoration-none text-dark">
-                <div class="text-center"><img class="img-width-one" src="/storage/product/cover/User_ID_1_633189.jpg" alt="..."></div>
+                <div class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$products->find($item->product)->image}}" alt="..."></div>
             </a>
         </div>
         <div class="col">
             <div class="">
                 {{$products->find($item->product)->name}}
                 <div class="">
-                    <span class="fw-bold me-2">12321321 ₽</span>
+                    <span class="fw-bold me-2">{{$products->find($item->product)->price}} ₽</span>
                     <span class="text-muted text-decoration-line-through">цена</span>
                 </div>
-                <div class="text-muted">1213123</div>
+                <div class="text-muted">{{$products->find($item->product)->article}}</div>
                 <div class="row row-cols-2 text-center g-0">
                     <div class="col">
-                        <a class="btn btn-warning w-100 rounded-0" href="/cp_edit_mrecomendation/{{$item->id}}">Редакт</a>
+                        <a class="btn btn-warning w-100 rounded-0 rounded-start" href="/cp_edit_mrecomendation/{{$item->id}}">Редакт</a>
                     </div>
-                    <div class="col">
-                        <a class="btn btn-danger w-100 rounded-0" href="/cp_delete_mrecomendation/{{$item->id}}">Удалить</a>
+                    <div class="col">   
+                        <a class="btn btn-danger w-100 rounded-0 rounded-end" href="/cp_delete_mrecomendation/{{$item->id}}">Удалить</a>
                     </div>
                 </div>
             </div>

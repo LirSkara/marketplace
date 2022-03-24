@@ -29,6 +29,11 @@
         <textarea type="text" class="form-control" id="description" name="description" placeholder="text" style="height: 100px">{{old('description')}}</textarea>
         <label for="description">Описание продукта</label>
     </div>
+    <div class="form-floating mb-2">
+        @error('ostatok'){{$message}}@enderror
+        <input type="text" name="ostatok" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Остаток</label>
+    </div>
     <select name="category" class="form-select mb-2" aria-label="Default select example">
         <option selected="" disabled="">Укажите категорию</option>
         @foreach($categories as $category)

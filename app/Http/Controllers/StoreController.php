@@ -98,7 +98,7 @@ class StoreController extends Controller
         $review->price = $data->input('price');
         $review->store = $store->id;
         $review->status = 0;
-        $review->ostatok = '';
+        $review->ostatok = $data->input('ostatok');
         $review->save();
         Storage::putFileAs($upload_folder, $file, $filename);
         
@@ -107,13 +107,60 @@ class StoreController extends Controller
         return redirect()->route('store');
     }
 
+    public function edit_product_process(Request $data, $id){
+        $valid = $data->validate([
+            'article' => ['required', 'min:1'],
+            'name' => ['required', 'min:1'],
+            'description' => ['required', 'min:1'],
+            'price' => ['required', 'min:1'],
+            'ostatok' => ['required', 'min:1'],
+            'category' => ['required', 'min:1'],
+        ]);
+
+        $review = Product::find($id);
+        $review->article = $data->input('article');
+        $review->name = $data->input('name');
+        $review->description = $data->input('description');
+        $review->category = $data->input('category');
+        $review->price = $data->input('price');
+        $review->ostatok = $data->input('ostatok');
+        $review->save();
+        
+        return redirect()->route('store_products');
+    }
+
+    public function delete_product_process(Request $data, $id){
+        $review = Product::find($id)->delete();
+        return redirect()->route('store_products');
+    }
+
+    public function edit_product_img_process(Request $data, $id){
+        $valid = $data->validate([
+            'image' => ['image', 'mimetypes:image/jpeg,image/png,image/webp'],
+        ]); 
+        
+        $review = Product::find($id);
+        $upload_folder = 'public/product/cover/';
+        $file = $data->file('image');
+        $filename = $file->getClientOriginalName();
+        Storage::delete($upload_folder . '/' . $review->image);
+        Storage::putFileAs($upload_folder, $file, $filename);    
+        $review->image = $filename;
+        Storage::putFileAs($upload_folder, $file, $filename); 
+    
+        $review->save();
+        return redirect()->route('store_products');
+    }
+
     public function store_products(){
         $user = auth()->user();
         $reviews = new Reviews;
         $item = Store::where('user',$user->id)->first();
         $products = new Product();
         $productst = new Product();
-        return view('store.products',['item'=>$item,'products'=>$products->all(),'productst'=>$productst,'reviews'=>$reviews]);
+        $categories = new Categories();
+        $puncts = new puncts();
+        return view('store.products',['item'=>$item,'products'=>$products->all(),'productst'=>$productst,'reviews'=>$reviews, 'categories'=>$categories->all(), 'puncts'=>$puncts->all()]);
     }
 
     public function orders(){

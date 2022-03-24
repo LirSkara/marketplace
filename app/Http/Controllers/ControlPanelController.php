@@ -201,9 +201,10 @@ class ControlPanelController extends Controller
         ]);
 
         $product = Product::where('id','=',$data->input('product'))->count();
+        $mr_count = Mrecomendations::where('product', '=', $data->input('product'))->count();
 
         if($product > 0){
-            if(Mrecomendations::find($data->input('product'))->count() > 0){
+            if($mr_count > 0){
                 return redirect()->route('mrecomendations');
             } else {
                 $review = new Mrecomendations();
@@ -229,9 +230,10 @@ class ControlPanelController extends Controller
         ]);
 
         $product = Product::where('id','=',$data->input('product'))->count();
+        $mr_count = Mrecomendations::where('product', '=', $data->input('product'))->count();
 
         if($product > 0){
-            if(Mrecomendations::find($data->input('product'))->count() > 0){
+            if($mr_count > 0){
                 return redirect()->route('mrecomendations');
             } else {
                 $review = Mrecomendations::find($id);

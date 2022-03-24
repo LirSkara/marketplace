@@ -113,5 +113,6 @@ Route::middleware('auth','seller')->group(function () {
     Route::post('/store_add', [StoreController::class, 'store_add_process']);
     Route::post('/add_product', [StoreController::class, 'add_product_process']);
     Route::post('/edit_product/{id}', [StoreController::class, 'edit_product_process']);
-    Route::post('/delete_product/{id}', [StoreController::class, 'delete_product_process']);
+    Route::post('/edit_product_img/{id}', [StoreController::class, 'edit_product_img_process']);
+    Route::get('/delete_product/{id}', [StoreController::class, 'delete_product_process']);
 });

@@ -15,23 +15,23 @@
     </div>
     <div id="rows" class="row g-3 row-cols-2 mt-0 px-2">
 
-        @foreach($products as $product)
-            @if($product->store == $item->id)
-                <div class="col mb-2 small">
-                    <a href="/product" class="text-decoration-none text-dark">
-                        <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
-                        <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
-                        <div class="text-muted">{{$product->name}}</div>
-                        <?php
-                            $count = $reviews->where('product',$product->id)->count();
-                            if($count == 0){$count = 1;}
-                            $product_reviews = $reviews->where('product',$product->id)->get();
-                            $all = 0;
-                            foreach($product_reviews as $review_product){
-                                $all = $review_product->rating + $all;
-                            }
-                            $all = $all/$count;
-                        ?>
+        @foreach($products->where('store', $item->id) as $product)
+            <div class="col mb-2 small">
+                <a href="/product" class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></a>
+                <button style="position:relative; left: 150px; bottom: 17px;" class="btn py-1 px-2 bg-primary rounded-pill"  data-bs-toggle="modal" data-bs-target="#editimg{{$item->id}}"><i class="bi bi-camera text-white"></i></button>
+                <a href="/product" class="text-decoration-none text-dark">
+                    <div><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
+                    <div class="text-muted">{{$product->name}}</div>
+                    <?php
+                        $count = $reviews->where('product',$product->id)->count();
+                        if($count == 0){$count = 1;}
+                        $product_reviews = $reviews->where('product',$product->id)->get();
+                        $all = 0;
+                        foreach($product_reviews as $review_product){
+                            $all = $review_product->rating + $all;
+                        }
+                        $all = $all/$count;
+                    ?>
                 @if($all >= 5)
                         <i class="bi bi-star-fill text-darksuccess me-1"></i>
                         <i class="bi bi-star-fill text-darksuccess me-1"></i>
@@ -69,16 +69,119 @@
                         <i class="bi bi-star text-darksuccess me-1"></i>
                         <i class="bi bi-star text-darksuccess"></i>
                     @endif
-                    </a>
                     @if($product->status == 0)
                     <div class="text-danger small">На модерации</div>
                     @endif
-                    <div class="mt-1">
-                        <a href="/cart" class="btn btn-warning text-white py-1">Ред.</a>
-                        <button class="btn btn-danger py-1">Удалить</button>
+                </a>
+                <div class="mt-1">
+                    <button class="btn btn-warning text-white py-1" data-bs-toggle="modal" data-bs-target="#edittovar{{$item->id}}">Ред.</button>
+                    <button class="btn btn-danger py-1" data-bs-toggle="modal" data-bs-target="#deletetovar{{$item->id}}">Удалить</button>
+                </div>
+            </div>
+
+             <!-- Modal Edit Img -->
+             <div class="modal fade" id="editimg{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header d-flex border-0">
+                            <h3 class="modal-title ms-auto" id="exampleModalLabel">Редактировать фото товара</h3>
+                            <button type="button" class="btn-close fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/edit_product_img/{{$product->id}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                                <div class="mb-1">
+                                    @error('image'){{$message}}@enderror
+                                    <input class="form-control" name="image" type="file" id="image">
+                                </div>
+
+                                <button class="btn btn-lg bg-darksuccess text-white mt-2 w-100">Редактировать</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            @endif
+            </div>
+
+            <!-- Modal Edit Tovar -->
+            <div class="modal fade" id="edittovar{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header d-flex border-0">
+                            <h3 class="modal-title ms-auto" id="exampleModalLabel">Редактировать товар</h3>
+                            <button type="button" class="btn-close fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/edit_product/{{$product->id}}" method="POST">
+                            @csrf
+
+                                <div class="form-floating">
+                                    @error('article'){{$message}}@enderror
+                                    <input type="text" name="article" value="{{$product->article}}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <label for="floatingInput">Артикл</label>
+                                </div>
+
+                                <div class="form-floating mt-2">
+                                    @error('name'){{$message}}@enderror
+                                    <input type="text" name="name" value="{{$product->name}}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <label for="floatingInput">Наименование товара</label>
+                                </div>
+
+                                
+                                <div class="form-floating mt-2">
+                                    @error('description'){{$message}}@enderror
+                                    <input type="text" name="description" value="{{$product->description}}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <label for="floatingInput">Описание</label>
+                                </div>
+
+                                <div class="form-floating mt-2">
+                                    @error('price'){{$message}}@enderror
+                                    <input type="text" name="price" value="{{$product->price}}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <label for="floatingInput">Цена</label>
+                                </div>
+
+                                <div class="form-floating mt-2">
+                                    @error('ostatok'){{$message}}@enderror
+                                    <input type="text" name="ostatok" value="{{$product->ostatok}}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <label for="floatingInput">Остаток</label>
+                                </div>
+
+                                <select name="category" class="form-select mt-2" aria-label="Default select example">
+                                    <option disabled="">Укажите категорию</option>
+                                    @foreach($categories as $category)
+                                        <option disabled="">-------- {{$category->name}} --------</option>
+                                        @foreach($puncts as $punct)
+                                            @if($punct->category == $category->id)
+                                                <option @if($punct->id == $product->category) selected @endif value="{{$punct->id}}">{{$category->name}} -> {{$punct->name}}</option>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                </select>
+
+                                <button class="btn btn-lg bg-darksuccess text-white mt-2 w-100">Редактировать</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal delete -->
+            <div class="modal fade" id="deletetovar{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="d-flex flex-column">
+                                <h4>Подтверждение</h4>
+                                <div>Вы действительно хотите удалить этот товар? Отменить это действие будет невозможно</div>
+                                <div class="d-flex gap-3 ms-auto mt-1">
+                                    <a href="/delete_product/{{$product->id}}" class="text-dark py-2">Да</a>
+                                    <button class="btn" data-bs-dismiss="modal">Нет</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endforeach
     </div>
 </div>
