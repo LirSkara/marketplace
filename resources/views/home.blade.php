@@ -61,90 +61,17 @@
             <h5 class="fw-bold">Возможно, вам понравится</h5>
         </div>
         <div class="row g-2 g-lg-4 row-cols-2 row-cols-lg-6 mt-0 mb-3 px-3">
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="https://images.wbstatic.net/c246x328/new/8880000/8888430-1.jpg" alt="..."></div>
-                    <div class="mt-2"><span class="fw-bold me-2">12 475 ₽</span></div>
-                    <div class="text-muted">Honor / Умный браслет</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="https://images.wbstatic.net/c246x328/new/8660000/8660678-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">12 475 ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
-                    <div class="text-muted">Elit soft / Подгузники</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="https://images.wbstatic.net/c246x328/new/11490000/11497215-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">12 870 ₽</span><span class="text-muted text-decoration-line-through">13 990 ₽</span></div>
-                    <div class="text-muted">Honor / Смарт-часы</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="https://images.wbstatic.net/c246x328/new/18690000/18692857-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">67 991 ₽</span><span class="text-muted text-decoration-line-through">79 990 ₽</span></div>
-                    <div class="text-muted">Samsung / Смартфон</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="https://images.wbstatic.net/c246x328/new/26560000/26568682-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">24 291 ₽</span><span class="text-muted text-decoration-line-through">26 990 ₽</span></div>
-                    <div class="text-muted">Xiaomi / Смартфон</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="https://images.wbstatic.net/c246x328/new/10750000/10758712-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">10 990 ₽</span></div>
-                    <div class="text-muted">Honor / Смарт-часы</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="//images.wbstatic.net/big/new/40650000/40654197-1.jpg" alt="..."></div>
-                    <div class="mt-2"><span class="fw-bold me-2">12 475 ₽</span></div>
-                    <div class="text-muted">Honor / Умный браслет</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="//images.wbstatic.net/big/new/44930000/44939784-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">12 475 ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
-                    <div class="text-muted">Elit soft / Подгузники</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="//images.wbstatic.net/big/new/62880000/62882121-1.avif" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">12 870 ₽</span><span class="text-muted text-decoration-line-through">13 990 ₽</span></div>
-                    <div class="text-muted">Honor / Смарт-часы</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="//images.wbstatic.net/big/new/44800000/44808161-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">67 991 ₽</span><span class="text-muted text-decoration-line-through">79 990 ₽</span></div>
-                    <div class="text-muted">Samsung / Смартфон</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="//images.wbstatic.net/big/new/27220000/27225834-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">24 291 ₽</span><span class="text-muted text-decoration-line-through">26 990 ₽</span></div>
-                    <div class="text-muted">Xiaomi / Смартфон</div>
-                </a>
-            </div>
-            <div class="col mb-3 small">
-                <a href="/product" class="text-decoration-none text-dark">
-                    <div class="text-center"><img class="img-width-one rounded-3" src="//images.wbstatic.net/big/new/21510000/21516443-1.jpg" alt="..." width="90%"></div>
-                    <div class="mt-2"><span class="fw-bold me-2">10 990 ₽</span></div>
-                    <div class="text-muted">Honor / Смарт-часы</div>
-                </a>
-            </div>
+            @foreach($mrecomendation as $item)
+                @foreach($products->where('id', $item->product) as $product)
+                    <div class="col mb-3 small">
+                        <a href="/product{{$item->id}}" class="text-decoration-none text-dark">
+                            <div class="text-center"><img class="img-width-one rounded-3" style="height: 200px; object-fit: cover;" src="/storage/product/cover/{{$product->image}}" alt="..."></div>
+                            <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
+                            <div class="text-muted">{{$product->name}}</div>
+                        </a>
+                    </div>
+                @endforeach
+            @endforeach
         </div>
     </div>
 </div>

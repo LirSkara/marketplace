@@ -47,7 +47,7 @@
                 
                 <div class="col mb-2 small">
                     <a href="/product/{{$product->id}}" class="text-decoration-none text-dark">
-                        <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
+                        <div class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
                         <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
                         <div class="text-muted">{{$product->name}}</div>
                         <?php
@@ -100,7 +100,9 @@
                     </a>
                     <div class="mt-1">
                         @if(Auth::check())
-                            <button class="btn btn-darksuccess text-white py-1 me-2" id="c{{$product->id}}" onclick="give_cart(this.id)">В корзину</button>
+                            <input type="number" id="i{{$product->id}}" value="1" class="form-control pt-1 pb-2 w-50 d-none">
+                            <button class="btn btn-darksuccess text-white py-1 me-2" id="{{$product->id}}" onclick="cart_swap(this.id)">В корзину</button>
+                            <button class="btn btn-primary py-1 d-none" id="c{{$product->id}}" onclick="give_cart(this.id)"><i class="bi bi-cart-check fs-5"></i></button>
                         @else
                             <a href="/order_one/{{$product->id}}" class="btn btn-darksuccess text-white py-1 me-2">Купить</a>
                         @endif
