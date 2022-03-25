@@ -3,7 +3,7 @@
 <div class="container">
 
     <h1 class="h3 mb-3">Список всех магазинов</h1>
-    <div class="row">
+    <div class="row row-cols-1 row-cols-lg-3">
         @foreach ($stores as $store)
             <div class="col">
                 <div class="card mb-2">

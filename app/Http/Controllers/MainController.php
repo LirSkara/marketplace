@@ -33,12 +33,17 @@ class MainController extends Controller
 
     public function product($id)
     {
-        $product = Product::find($id);
-        $store = Store::find($product->store)->first();
-        $reviews = Reviews::where('product', '=', $product->id);
-        $users = new User();
-        
-        return view('product',['product'=>$product,'store'=>$store,'reviews'=>$reviews->orderBy('id','desc')->get(),'users'=>$users]);
+        if(Product::where('id',$id)->count() > 0){
+            $product = Product::find($id);
+            $punct = Puncts::find($product->category)->first();
+            $category = Categories::find($punct->category)->first();
+            $reviews = Reviews::where('product', '=', $product->id);
+            $users = new User();
+            
+            return view('product',['product'=>$product,'punct'=>$punct,'category'=>$category,'reviews'=>$reviews->orderBy('id','desc')->get(),'users'=>$users]);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function review_add(Request $data,$id){
@@ -62,20 +67,28 @@ class MainController extends Controller
 
     public function category($id)
     {
-        $reviews = new Reviews;
-        $favourites = new Favourites;
-        $item = Puncts::find($id);
-        $products = new Product();
-        $c_name = Categories::find($item->category)->name;
-        return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all(),'reviews'=>$reviews,'favourites'=>$favourites]);
+        if(Puncts::where('id',$id)->count() > 0){
+            $reviews = new Reviews;
+            $favourites = new Favourites;
+            $item = Puncts::find($id);
+            $products = new Product();
+            $c_name = Categories::find($item->category)->name;
+            return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all(),'reviews'=>$reviews,'favourites'=>$favourites]);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function brand($id)
     {
-        $reviews = new Reviews;
-        $store = Store::find($id);
-        $products = Product::where('store', '=', $id)->get();
-        return view('brand',['store'=>$store,'products'=>$products,'reviews'=>$reviews]);
+        if(Store::where('id',$id)->count() > 0){
+            $reviews = new Reviews;
+            $store = Store::find($id);
+            $products = Product::where('store', '=', $id)->get();
+            return view('brand',['store'=>$store,'products'=>$products,'reviews'=>$reviews]);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function favorites()

@@ -68,6 +68,7 @@
                     <div class="text-muted">Honor / Умный браслет</div>
                 </a>
             </div>
+
             <div class="col mb-3 small">
                 <a href="/product" class="text-decoration-none text-dark">
                     <div class="text-center"><img class="img-width-one rounded-3" src="https://images.wbstatic.net/c246x328/new/8660000/8660678-1.jpg" alt="..." width="90%"></div>

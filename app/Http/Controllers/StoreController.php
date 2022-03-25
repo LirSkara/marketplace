@@ -124,6 +124,7 @@ class StoreController extends Controller
         $review->category = $data->input('category');
         $review->price = $data->input('price');
         $review->ostatok = $data->input('ostatok');
+        $review->status = 0;
         $review->save();
         
         return redirect()->route('store_products');

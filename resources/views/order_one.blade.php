@@ -9,11 +9,6 @@
             <li class="breadcrumb-item active" aria-current="page">Оформление заказа</li>
         </ol>
     </nav>
-    @if($errors->any())
-    @foreach($errors->all() as $error)
-        {{$error}}
-    @endforeach
-@endif
     <form action="/order_one/{{$product->id}}" method="POST">
         @csrf
     <div class="row">
@@ -36,8 +31,7 @@
         </div>
     </div>
         <select class="form-select my-1 @error('sposob')is-invalid @enderror" name="sposob">
-            <option disabled selected>Способ получения</option>
-            <option value="1" id="show" onclick="show(this.id)">Доставка</option>
+            <option value="1" id="show" selected onclick="show(this.id)">Доставка</option>
             <option value="2" id="hide" onclick="show(this.id)">Самовывоз</option>
         </select>
 

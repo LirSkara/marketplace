@@ -5,7 +5,8 @@
     <nav aria-label="breadcrumb custom-cr">
         <ol class="breadcrumb crumb-custom">
             <li class="breadcrumb-item"><a href="/">Главная</a></li>
-            <li class="breadcrumb-item"><a href="/brand/{{$product->store}}">{{$store->name}}</a></li>
+            <li class="breadcrumb-item text-muted">{{$category->name}}</li>
+            <li class="breadcrumb-item"><a href="/category/{{$punct->id}}">{{$punct->name}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
         </ol>
     </nav>
