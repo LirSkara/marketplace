@@ -24,19 +24,38 @@ function give(val) {
         }
     });
 }
+
+// Меняет кнопку на инпут
+function cart_swap(id) {
+    let swap = document.getElementById(id)
+    let input = document.getElementById(`i${id}`)
+    let like = document.getElementById(`f${id}`)
+    let success = document.getElementById(`c${id}`)
+    swap.classList.add('d-none')
+    input.classList.remove('d-none')
+    input.classList.add('d-inline')
+    like.classList.add('d-none')
+    success.classList.remove('d-none')
+}
+
 //Добавление и удаление товаров в корзине
 function give_cart(val) {
     val = val.replace(/[a-zа-яё]/gi, '')
-
+    var col = document.getElementById(`i${val}`).value
+    col = col.replace(/[a-zа-яё]/gi, '')
     $.ajax({
-        url: `/add_to_cart/${val}`,
+        url: `/add_to_cart/${val}/${col}`,
         method: 'get',
         dataType: 'html',
         success: function(data){
             if(data == 1){
+                var input = document.getElementById(`i${val}`)
+                input.classList.add('d-none')
                 document.getElementById('c'+val).innerHTML = 'Добавлен'
                 document.getElementById('c'+val).disabled = true
             } else {
+                var input = document.getElementById(`i${val}`)
+                input.classList.add('d-none')
                 document.getElementById('c'+val).innerHTML = 'Ошибка'
             }
         }

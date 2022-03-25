@@ -15,6 +15,8 @@ use App\Models\Store;
 use App\Models\Favourites;
 use App\Models\User;
 use App\Models\OrderOne;
+use App\Models\Cart;
+use App\Models\Mrecomendations;
 
 class MainController extends Controller
 {
@@ -23,7 +25,9 @@ class MainController extends Controller
         $slides = new Slides();
         $collections = new Collections();
         $mactions = new Mactions();
-        return view('home',['slides' => $slides->orderBy('id','desc')->get(),'collections' => $collections->orderBy('id','desc')->get(),'mactions' => $mactions->orderBy('id','desc')->get()]);
+        $mrecomendation = Mrecomendations::limit(12)->get();
+        $products = new Product();
+        return view('home',['slides' => $slides->orderBy('id','desc')->get(),'collections' => $collections->orderBy('id','desc')->get(),'mactions' => $mactions->orderBy('id','desc')->get(), 'mrecomendation' => $mrecomendation, 'products' => $products->all()]);
     }
 
     public function cart()
@@ -126,7 +130,21 @@ class MainController extends Controller
         $review->save();
     }
 
-    public function add_to_cart($id){
+    public function add_to_cart($id,$col){
+        $cart_count = Cart::where([['user_id', '=', auth()->user()->id], ['product_id', '=', $id]])->count();
+
+        if($cart_count == 0) {
+            $cart = new Cart();
+            $cart->user_id = auth()->user()->id;
+            $cart->product_id = $id;
+            $cart->colvo = $col;
+            $cart->save();
+        } else {
+            $cart = Cart::where([['user_id', '=', auth()->user()->id], ['product_id', '=', $id]])->first();
+            $cart->colvo = $cart->colvo+$col;
+            $cart->save();
+        }
+
         return 1;
     }
 

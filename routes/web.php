@@ -20,8 +20,8 @@ Route::get('/favorites', [MainController::class, 'favorites']);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login_process']);
 Route::post('/register', [AuthController::class, 'register_process']);
-Route::get('/add_to_cart/{id}', [MainController::class, 'add_to_cart']);
-
+Route::get('/add_to_cart/{id}/{col}', [MainController::class, 'add_to_cart']);
+    
 Route::get('/search/{poisk}', [MainController::class, 'search']);
 
 Route::middleware('auth')->group(function () {
