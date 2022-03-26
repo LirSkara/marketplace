@@ -83,14 +83,14 @@
             <a href="/expenses" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-cash-coin fs-1 text-info"></i>
                 Финансы
-                <span class="small text-muted">Всего: 5500 ₽</span>
+                <span class="small text-muted">Всего: 0 ₽</span>
             </a>
         </div>
         <div class="col">
             <a href="/purchases" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-bag-check fs-1 text-primary"></i>
                 Покупки
-                <span class="small text-muted">Всего: 1</span>
+                <span class="small text-muted">Всего: 0</span>
             </a>
         </div>
         <div class="col">

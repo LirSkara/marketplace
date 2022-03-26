@@ -42,7 +42,7 @@
             </div> --}}
         </div>
     </div>
-    <div id="rows" class="row g-3 row-cols-2 mt-0 px-2">
+    <div id="rows" class="row g-3 row-cols-1 row-cols-lg-4 mt-0 px-2">
         @foreach($products as $product)
         @if ($product->status == 1)
         <div class="col mb-2 small">
