@@ -48,14 +48,14 @@
             <a href="/favorites" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-bookmark-heart fs-1 text-danger"></i>
                 Избранное
-                <span class="small text-muted">Товаров: 1</span>
+                <span class="small text-muted">Товаров: 0</span>
             </a>
         </div>
         <div class="col">
             <a href="/cart" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-cart4 fs-1 text-info"></i>
                 Корзина
-                <span class="small text-muted">Товаров: 1</span>
+                <span class="small text-muted">Товаров: 0</span>
             </a>
         </div>
         {{-- <div class="col">
@@ -83,21 +83,21 @@
             <a href="/expenses" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-cash-coin fs-1 text-info"></i>
                 Финансы
-                <span class="small text-muted">Всего: 5500 ₽</span>
+                <span class="small text-muted">Всего: 0 ₽</span>
             </a>
         </div>
         <div class="col">
             <a href="/purchases" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-bag-check fs-1 text-primary"></i>
                 Покупки
-                <span class="small text-muted">Всего: 1</span>
+                <span class="small text-muted">Всего: 0</span>
             </a>
         </div>
         <div class="col">
             <a href="/activity" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-activity fs-1 text-danger"></i>
                 Активность
-                <span class="small text-muted">Действий: 3</span>
+                <span class="small text-muted">Действий: 0</span>
             </a>
         </div>
     </div>
