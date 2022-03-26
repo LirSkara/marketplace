@@ -22,7 +22,9 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login_process']);
 Route::post('/register', [AuthController::class, 'register_process']);
 Route::get('/add_to_cart/{id}/{col}', [MainController::class, 'add_to_cart']);
-    
+Route::get('/plus_product/{id}', [MainController::class, 'plus_product']);
+Route::get('/minus_product/{id}', [MainController::class, 'minus_product']);
+
 Route::get('/search/{poisk}', [MainController::class, 'search']);
 
 Route::middleware('auth')->group(function () {

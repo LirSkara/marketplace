@@ -40,8 +40,10 @@
                             <span class="fs-2">{{$product->price}} ₽</span>
                         </div>
                         <div class="col-12 col-lg-6 mt-2 mt-lg-0">
-                            @if(Auth::check())
-                            <button class="btn btn-lg btn-darksuccess btn-custom" id="c{{$product->id}}" onclick="give_cart(this.id)"><i class="bi bi-bag-plus"></i> Добавить в корзину</button>
+                        @if(Auth::check())
+                            <input type="number" id="i{{$product->id}}" value="1" class="form-control pt-1 pb-2 w-75 d-none">
+                            <button class="btn btn-lg btn-darksuccess btn-custom" id="{{$product->id}}" onclick="cart_swap_product(this.id)"><i class="bi bi-bag-plus"></i> Добавить в корзину</button>
+                            <button class="btn btn-primary py-1 d-none" id="c{{$product->id}}" onclick="give_cart(this.id)"><i class="bi bi-cart-check fs-5"></i></button>
                         @else
                             <a href="/order_one/{{$product->id}}" class="btn btn-lg btn-darksuccess btn-custom" id="c{{$product->id}}" onclick="give_cart(this.id)"><i class="bi bi-bag-plus"></i> Купить сейчас</a>
                         @endif
@@ -53,6 +55,29 @@
                     <div class="text-muted">{{$product->description}}</div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="pb-4 mt-3">
+        <div class="bg-light rounded border p-3">
+            <form action="/review_add/{{$product->id}}" method="POST" class="">
+                @csrf
+                <div class="mb-2 d-flex justify-content-center">
+                    <div class="stars">
+                        <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+                        <label class="star star-1" for="star-1"></label>
+                    </div>
+                </div>
+                <textarea type="text" name="text" class="form-control" placeholder="Введите ваш отзыв"></textarea>
+                <button class="btn btn-darksuccess w-100 mt-2">Оставить отзыв</button>
+            </form>
         </div>
     </div>
     <div class="bg-light rounded border p-3">
@@ -166,30 +191,6 @@
         </div>
         @endforeach
 
-    </div>
-
-    <div class="pb-4 mt-3">
-        <div class="bg-light rounded border p-3">
-            <form action="/review_add/{{$product->id}}" method="POST" class="">
-                @csrf
-                <div class="mb-2 d-flex justify-content-center">
-                    <div class="stars">
-                        <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
-                        <label class="star star-5" for="star-5"></label>
-                        <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
-                        <label class="star star-4" for="star-4"></label>
-                        <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
-                        <label class="star star-3" for="star-3"></label>
-                        <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
-                        <label class="star star-2" for="star-2"></label>
-                        <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
-                        <label class="star star-1" for="star-1"></label>
-                    </div>
-                </div>
-                <textarea type="text" name="text" class="form-control" placeholder="Введите ваш отзыв"></textarea>
-                <button class="btn btn-darksuccess w-100 mt-2">Оставить отзыв</button>
-            </form>
-        </div>
     </div>
 </div>
 @endsection

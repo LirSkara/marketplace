@@ -52,6 +52,7 @@
                 <div class="text-muted">{{$product->name}}</div>
                 <?php
                     $count = $reviews->where('product',$product->id)->count();
+                    if($count == 0){$count = 1;}
                     $product_reviews = $reviews->where('product',$product->id)->get();
                     $all = 0;
                     foreach($product_reviews as $review_product){
@@ -98,8 +99,22 @@
                     @endif
             </a>
             <div class="mt-1">
-                <a href="/cart" class="btn btn-darksuccess text-white py-1">В корзину</a>
-                <button class="btn btn-light py-1"><i class="bi bi-heart text-danger fs-5"></i></button>
+                @if(Auth::check())
+                    <input type="number" id="i{{$product->id}}" value="1" min="0" class="form-control pt-1 pb-2 w-50 d-none">
+                    <button class="btn btn-darksuccess text-white py-1 me-2" id="{{$product->id}}" onclick="cart_swap(this.id)">В корзину</button>
+                    <button class="btn btn-primary py-1 d-none" id="c{{$product->id}}" onclick="give_cart(this.id)"><i class="bi bi-cart-check fs-5"></i></button>
+                @else
+                    <a href="/order_one/{{$product->id}}" class="btn btn-darksuccess text-white py-1 me-2">Купить</a>
+                @endif
+                @if(Auth::check())
+                    @if($favourites->where('product',$product->id)->count() > 0)
+                        <button class="btn btn-light py-1" id="f{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart-fill text-danger fs-5"></i></button>
+                    @else
+                        <button class="btn btn-light py-1" id="f{{$product->id}}" onclick="give(this.id)"><i class="bi bi-heart text-danger fs-5"></i></button>
+                    @endif
+                @else
+                    <button class="btn btn-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-heart text-danger fs-5"></i></button>
+                @endif
             </div>
         </div>
         @endif

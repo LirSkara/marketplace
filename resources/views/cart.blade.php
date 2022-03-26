@@ -19,8 +19,12 @@
                                 <div class="card mb-2 shadow">
                                     <div class="row g-0">
                                         <div class="col-5">
-                                            <img src="/storage/product/cover/{{$products->find($item->product_id)->image}}" style="object-fit: cover;height:145px;width:100%" alt="">
-                                            <input type="number" class="form-control" value="{{$item->colvo}}">
+                                            <img src="/storage/product/cover/{{$products->find($item->product_id)->image}}" style="object-fit: cover;height:145px;width:100%; border-top-left-radius: 4px; border-bottom-right-radius: 4px;" alt="">
+                                            <div class="d-flex">
+                                                <button class="btn" id="m{{$item->id}}" onclick="minus_product(this.id)"><i class="bi bi-dash"></i></button>
+                                                <span class="py-2" id="c{{$item->id}}">{{$item->colvo}}</span>
+                                                <button class="btn" id="p{{$item->id}}" onclick="plus_product(this.id)"><i class="bi bi-plus"></i></button>
+                                            </div>
                                         </div>
                                         <div class="col">
                                             <div class="card-body">

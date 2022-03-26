@@ -115,7 +115,6 @@
                         @else
                             <button class="btn btn-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-heart text-danger fs-5"></i></button>
                         @endif
-
                     </div>
                 </div>
                 @endif

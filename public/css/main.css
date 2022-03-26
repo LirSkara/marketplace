@@ -334,6 +334,9 @@ label.star:before {
         margin-left: auto;
         margin-right: auto;
     }
+    .search-index {
+        z-index: 10000;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -386,5 +389,12 @@ label.star:before {
     }
     .display-modal-search {
         display: none !important;
+    }
+    .modal-search {
+        position: fixed;
+        left: 35%;
+        top: 30px;
+        min-width: 700px;
+        z-index: 3000;
     }
 }
