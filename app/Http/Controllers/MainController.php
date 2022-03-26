@@ -27,7 +27,9 @@ class MainController extends Controller
         $mactions = new Mactions();
         $mrecomendation = Mrecomendations::limit(12)->get();
         $products = new Product();
-        return view('home',['slides' => $slides->orderBy('id','desc')->get(),'collections' => $collections->orderBy('id','desc')->get(),'mactions' => $mactions->orderBy('id','desc')->get(), 'mrecomendation' => $mrecomendation, 'products' => $products->all()]);
+        $reviews = new Reviews;
+        $favourites = new Favourites;
+        return view('home',['slides' => $slides->orderBy('id','desc')->get(),'collections' => $collections->orderBy('id','desc')->get(),'mactions' => $mactions->orderBy('id','desc')->get(), 'mrecomendation' => $mrecomendation, 'products' => $products->all(), 'reviews' => $reviews, 'favourites' => $favourites]);
     }
 
     public function cart()
@@ -92,7 +94,8 @@ class MainController extends Controller
             $reviews = new Reviews;
             $store = Store::find($id);
             $products = Product::where('store', '=', $id)->get();
-            return view('brand',['store'=>$store,'products'=>$products,'reviews'=>$reviews]);
+            $favourites = new Favourites;
+            return view('brand',['store'=>$store,'products'=>$products,'reviews'=>$reviews, 'favourites' => $favourites]);
         } else {
             return redirect()->route('home');
         }
@@ -155,6 +158,26 @@ class MainController extends Controller
         $cart = Cart::find($id);
         $cart->delete();
         return redirect()->route('cart');
+    }
+
+    public function plus_product($id) {
+        $cart = Cart::find($id);
+        $cart->colvo = $cart->colvo+1;
+        $cart->save();
+
+        return $cart->colvo;
+    }
+
+    public function minus_product($id) {
+        $cart = Cart::find($id);
+        $cart->colvo = $cart->colvo-1;
+        $cart->save();
+
+        if($cart->colvo == 0) {
+            Cart::find($id)->delete();
+        }
+
+        return $cart->colvo;
     }
 
     public function search($poisk) {

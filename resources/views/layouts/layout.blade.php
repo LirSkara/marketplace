@@ -37,7 +37,7 @@
                     @endif              
                     <a id="heart" href="/favorites" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-bookmark-heart"></i></a>
                     <a id="cart" href="/cart" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-cart4"></i></a>
-                    <button class="fs-2 btn btn-none py-0 text-white display-top-search" data-bs-toggle="modal" data-bs-target="#exampleModalsearch"><i class="fa fa-search me-1" aria-hidden="true"></i></button>
+                    <button class="fs-2 btn btn-none py-0 text-white display-top-search" data-bs-toggle="modal" data-bs-target="#staticBackdropsearch"><i class="fa fa-search me-1" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -102,8 +102,8 @@
     <!-- Конец модального окна меню -->
 
     <!-- Начало модального окна поиск -->
-    <div class="modal fade" id="staticBackdropsearch" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="z-index: 3000">
-        <div class="modal-dialog modal-fullscreen-sm-down" style="position: fixed; left: 35%; top: 30px; min-width: 700px;">
+    <div class="modal fade search-index" id="staticBackdropsearch" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-sm-down modal-search">
             <div class="modal-content rounded-5 shadow">
                 <div class="modal-body pt-0">
                     <div class="container mt-3 px-0">

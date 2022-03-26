@@ -28,6 +28,7 @@
                         <div class="text-muted">Philips / Пылесос сухая / FC9733/01</div>
                         <?php
                             $count = $reviews->where('product',$products->find($favourite->product)->id)->count();
+                            if($count == 0){$count = 1;}
                             $product_reviews = $reviews->where('product',$products->find($favourite->product)->id)->get();
                             $all = 0;
                             foreach($product_reviews as $review_product){
@@ -74,17 +75,22 @@
                     @endif
                     </a>
                     <div class="mt-1">
-                            <button class="btn btn-darksuccess text-white py-1 me-2" id="add_to_cart">В корзину</button>
                         @if(Auth::check())
-                            @if($favourites->where('product',$products->find($favourite->product)->id)->count() > 0)
-                                <button class="btn btn-light py-1" id="{{$products->find($favourite->product)->id}}" onclick="give(this.id)"><i class="bi bi-heart-fill text-danger fs-5"></i></button>
+                            <input type="number" id="i{{$products->where('id', $favourite->product)->first()->id}}" value="1" min="0" class="form-control pt-1 pb-2 w-50 d-none">
+                            <button class="btn btn-darksuccess text-white py-1 me-2" id="{{$products->where('id', $favourite->product)->first()->id}}" onclick="cart_swap(this.id)">В корзину</button>
+                            <button class="btn btn-primary py-1 d-none" id="c{{$products->where('id', $favourite->product)->first()->id}}" onclick="give_cart(this.id)"><i class="bi bi-cart-check fs-5"></i></button>
+                        @else
+                            <a href="/order_one/{{$products->where('id', $favourite->product)->first()->id}}" class="btn btn-darksuccess text-white py-1 me-2">Купить</a>
+                        @endif
+                        @if(Auth::check())
+                            @if($favourites->where('product', $products->where('id', $favourite->product)->first()->id)->count() > 0)
+                                <button class="btn btn-light py-1" id="f{{$products->where('id', $favourite->product)->first()->id}}" onclick="give(this.id)"><i class="bi bi-heart-fill text-danger fs-5"></i></button>
                             @else
-                                <button class="btn btn-light py-1" id="{{$products->find($favourite->product)->id}}" onclick="give(this.id)"><i class="bi bi-heart text-danger fs-5"></i></button>
+                                <button class="btn btn-light py-1" id="f{{$products->where('id', $favourite->product)->first()->id}}" onclick="give(this.id)"><i class="bi bi-heart text-danger fs-5"></i></button>
                             @endif
                         @else
                             <button class="btn btn-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-heart text-danger fs-5"></i></button>
                         @endif
-
                     </div>
                 </div>
             @endforeach
