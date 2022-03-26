@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserProfile;
 use App\Models\Favourites;
+use App\Models\Cart;
+use App\Models\Reviews;
 use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
@@ -60,7 +62,10 @@ class AuthController extends Controller
     public function cabinet()
     {
         $user = auth()->user();
-        return view('auth.cabinet', ['user' => $user]);
+        $favourites_count = Favourites::where('user', '=', auth()->user()->id)->count();
+        $cart_count = Cart::where('user_id', '=', auth()->user()->id)->count();
+        $reviews_count = Reviews::where('user', '=', auth()->user()->id)->count();
+        return view('auth.cabinet', ['user' => $user, 'favourites_count' => $favourites_count, 'cart_count' => $cart_count, 'reviews_count' => $reviews_count]);
     }
 
     public function user_info_edit()

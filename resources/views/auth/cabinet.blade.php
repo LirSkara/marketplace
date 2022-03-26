@@ -48,14 +48,14 @@
             <a href="/favorites" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-bookmark-heart fs-1 text-danger"></i>
                 Избранное
-                <span class="small text-muted">Товаров: 1</span>
+                <span class="small text-muted">Товаров: {{$favourites_count}}</span>
             </a>
         </div>
         <div class="col">
             <a href="/cart" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-cart4 fs-1 text-info"></i>
                 Корзина
-                <span class="small text-muted">Товаров: 1</span>
+                <span class="small text-muted">Товаров: {{$cart_count}}</span>
             </a>
         </div>
         {{-- <div class="col">
@@ -97,7 +97,7 @@
             <a href="/activity" class="card shadow-sm small p-3 text-center text-decoration-none text-dark">
                 <i class="bi bi-activity fs-1 text-danger"></i>
                 Активность
-                <span class="small text-muted">Действий: 3</span>
+                <span class="small text-muted">Действий: {{$reviews_count}}</span>
             </a>
         </div>
     </div>
