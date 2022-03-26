@@ -32,7 +32,10 @@ class MainController extends Controller
 
     public function cart()
     {
-        return view('cart');
+        $products = new Product();
+        $user = auth()->user();
+        $cart = new Cart;
+        return view('cart',['cart'=>$cart->all(),'user'=>$user,'products'=>$products]);
     }
 
     public function product($id)
@@ -146,6 +149,12 @@ class MainController extends Controller
         }
 
         return 1;
+    }
+
+    public function delete_cart($id){
+        $cart = Cart::find($id);
+        $cart->delete();
+        return redirect()->route('cart');
     }
 
     public function search($poisk) {

@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 //Main routes
 Route::get('/', [MainController::class, 'home'])->name('home');
-Route::get('/cart', [MainController::class, 'cart']);
+Route::get('/cart', [MainController::class, 'cart'])->name('cart');
 Route::get('/product/{id}', [MainController::class, 'product'])->name('product');
+Route::get('/delete_cart/{id}', [MainController::class, 'delete_cart']);
 Route::get('/category/{id}', [MainController::class, 'category']);
 Route::get('/brand/{id}', [MainController::class, 'brand']);
 Route::get('/order_one/{id}', [MainController::class, 'order_one']);
