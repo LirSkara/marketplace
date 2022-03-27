@@ -71,7 +71,7 @@
                                 <a href="/categories" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-badge me-1"></i> Продавцы</span></a>
                             </li>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
-                                <a href="/categories" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-workspace me-1"></i> Управляющий персонал</span></a>
+                                <a href="/personal" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-workspace me-1"></i> Управляющий персонал</span></a>
                             </li>
                             <li class="list-group-item bg-light border-0 px-3 py-1 border-top rounded-0">
                                 <a href="/orders" class="text-dark text-decoration-none d-flex py-2"><span class="my-auto"><i class="bi bi-person-workspace me-1"></i> Новые заказы</span></a>

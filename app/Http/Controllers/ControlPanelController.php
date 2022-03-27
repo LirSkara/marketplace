@@ -24,6 +24,11 @@ class ControlPanelController extends Controller
         return view('control_panel.index');
     }
 
+    public function personal()
+    {
+        return view('control_panel.personal');
+    }
+
     public function categories()
     {
         $items = new Categories();

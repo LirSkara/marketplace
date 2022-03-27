@@ -9,15 +9,15 @@
             <div class="card mb-2">
                 <div class="card-body">
                     <div class="fs-3"><i class="bi bi-graph-up"></i> Статистика</div>
-                    <div>Всего продаж за месяц: 123</div>
-                    <div>Сумма продаж за месяц: 1 200 450 ₽</div>
+                    <div>Всего продаж за месяц: 0</div>
+                    <div>Сумма продаж за месяц: 0 ₽</div>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card mb-2">
                 <div class="card-body">
-                    <div class="fs-3"><i class="bi bi-person"></i> Посетители: 14.456</div>
+                    <div class="fs-3"><i class="bi bi-person"></i> Посетители: 0</div>
                 </div>
             </div>
         </div>

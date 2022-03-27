@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth','admin')->group(function () {
     //Control Panel
     Route::get('/control_panel', [ControlPanelController::class, 'index'])->name('c_p');
+    Route::get('/personal', [ControlPanelController::class, 'personal'])->name('personal');
     Route::get('/orders', [ControlPanelController::class, 'orders'])->name('orders');
     Route::get('/cp_categories', [ControlPanelController::class, 'categories'])->name('c_p_categories');
     Route::get('/slider', [ControlPanelController::class, 'slider'])->name('slider');
