@@ -134,6 +134,9 @@ function downgrade(id) {
             } else
             if(data == 2) {
                 document.getElementById('person').innerHTML = 'Продавец'
+            } else
+            if(data == 7) {
+                document.getElementById('person').innerHTML = 'Модератор'
             }
         }
     })
@@ -149,6 +152,9 @@ function raise(id) {
         success: function(data) {
             if(data == 2) {
                 document.getElementById('person').innerHTML = 'Продавец'
+            } else
+            if(data == 7) {
+                document.getElementById('person').innerHTML = 'Модератор'
             } else
             if(data == 9) {
                 document.getElementById('person').innerHTML = 'Админ'

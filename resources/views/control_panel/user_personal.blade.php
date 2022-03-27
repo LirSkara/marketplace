@@ -29,6 +29,12 @@
                     <button id="down{{$user->id}}" onclick="downgrade(this.id)" class="btn btn-danger w-50"><i class="bi bi-arrow-down"></i> Понизить</button>
                     <button id="up{{$user->id}}" onclick="raise(this.id)" class="btn bg-darksuccess text-white w-50"><i class="bi bi-arrow-up"></i> Повысить</button>
                 </div>
+            @elseif($user->status == 7)
+                <h3>Модератор</h3>
+                <div class="d-flex gap-1">
+                    <button id="down{{$user->id}}" onclick="downgrade(this.id)" class="btn btn-danger w-50"><i class="bi bi-arrow-down"></i> Понизить</button>
+                    <button id="up{{$user->id}}" onclick="raise(this.id)" class="btn bg-darksuccess text-white w-50"><i class="bi bi-arrow-up"></i> Повысить</button>
+                </div>
             @elseif($user->status == 9)
                 <h3>Админ</h3>
                 <div class="bg-darksuccess text-white rounded-3 text-center py-1">Нельзя повысить или понизить</div>

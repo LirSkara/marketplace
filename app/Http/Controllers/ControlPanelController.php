@@ -452,8 +452,12 @@ class ControlPanelController extends Controller
             $user->status = 0;
             $user->save();
             return $user->status;
-        } elseif ($user->status == 9) {
+        } elseif ($user->status == 7) {
             $user->status = 2;
+            $user->save();
+            return $user->status;
+        } elseif ($user->status == 9) {
+            $user->status = 7;
             $user->save();
             return $user->status;
         }
@@ -467,6 +471,10 @@ class ControlPanelController extends Controller
             $user->save();
             return $user->status;
         } elseif ($user->status == 2) {
+            $user->status = 7;
+            $user->save();
+            return $user->status;
+        } elseif ($user->status == 7) {
             $user->status = 9;
             $user->save();
             return $user->status;

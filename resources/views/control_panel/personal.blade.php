@@ -28,6 +28,22 @@
             </div>
         </li>
         <li class="list-group-item px-3 bg-light text-dark text-decoration-none d-flex py-2 d-flex flex-column">
+            <h3>Модераторы</h3>
+            <div class="d-flex flex-column">
+                @foreach($users->where('status', 7) as $moderator)
+                    <div class="d-flex py-1">
+                        @if($moderator->image != '')
+                            <img class="rounded-pill me-2" width="40px" height="40px" src="/storage/avatars/{{$moderator->image}}" alt="">
+                        @else
+                            <img class="rounded-pill me-2" width="40px" height="40px" src="/img_default.webp" alt="">
+                        @endif
+                        <h5 class="mt-1">{{$moderator->email}}</h5>
+                        <span class="mt-1 ms-auto">{{$moderator->id}}</span>
+                    </div>
+                @endforeach
+            </div>
+        </li>
+        <li class="list-group-item px-3 bg-light text-dark text-decoration-none d-flex py-2 d-flex flex-column">
             <h3>Продавцы</h3>
             <div class="d-flex flex-column">
                 @foreach($users->where('status', 2) as $salesman)
