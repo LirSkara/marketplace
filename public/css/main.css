@@ -290,6 +290,29 @@ label.star:before {
     content: '\f006';
     font-family: FontAwesome
 }
+.btn-search-personal {
+    width: 10%;
+    background-color:  #156e7e4b;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.search-personal {
+    width: 90%;
+    border: none;
+    outline: none;
+    background-color:  #156e7e4b;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.text-lightsuccess {
+    color:  #156e7e9f;
+}
+.user-personal-avatar {
+    width: 70px;
+    height: 70px;
+}
 @media (max-width: 1025px) {
     .cart-image {
         max-width: 40%;

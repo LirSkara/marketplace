@@ -31,12 +31,12 @@
                 <div class="col-3 col-lg-9 text-end width-col-end px-0">
                     <input type="search" oninput="s_line(this.id)" id="search" class="header-search py-2 px-4 shadow-sm me-5" placeholder="Я ищу..." data-bs-toggle="modal" data-bs-target="#staticBackdropsearch">
                     @if(Auth::check())
-                        <a id="cabinet" href="/cabinet" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
+                        <a href="/cabinet" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
                     @else
-                        <a id="sign_in" href="/login" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
+                        <a href="/login" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
                     @endif              
-                    <a id="heart" href="/favorites" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-bookmark-heart"></i></a>
-                    <a id="cart" href="/cart" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-cart4"></i></a>
+                    <a href="/favorites" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-bookmark-heart"></i></a>
+                    <a href="/cart" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-cart4"></i></a>
                     <button class="fs-2 btn btn-none py-0 text-white display-top-search" data-bs-toggle="modal" data-bs-target="#staticBackdropsearch"><i class="fa fa-search me-1" aria-hidden="true"></i></button>
                 </div>
             </div>

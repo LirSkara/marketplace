@@ -37,7 +37,6 @@ function menu(name) {
 }
 
 function catalog(name) {
-
     document.getElementById('menu').click()
 }
 
@@ -101,4 +100,59 @@ function s_line(name) {
             }
         })
     }
+}
+
+function show_personal() {
+    var poisk = document.getElementById('search_input').value
+    if(poisk != '') {
+        $.ajax({    
+            type: "GET",
+            url: `/search_personal/${poisk}`,
+            method: 'get',
+            dataType: 'html',
+            success: function(data) {
+                if(data == 1) {
+                    window.location.href = `user_personal/${poisk}`;
+                } else {
+                    document.getElementById('invalid').innerHTML = 'Такого пользователя нет'
+                }
+            }
+        })
+    }
+}
+
+function downgrade(id) {
+    id = id.replace(/[a-zа-яё]/gi, '')
+    $.ajax({    
+        type: "GET",
+        url: `/downgrade/${id}`,
+        method: 'get',
+        dataType: 'html',
+        success: function(data) {
+            if(data == 0) {
+                document.getElementById('person').innerHTML = 'Пользователь'
+            } else
+            if(data == 2) {
+                document.getElementById('person').innerHTML = 'Продавец'
+            }
+        }
+    })
+}
+
+function raise(id) {
+    id = id.replace(/[a-zа-яё]/gi, '')
+    $.ajax({    
+        type: "GET",
+        url: `/raise/${id}`,
+        method: 'get',
+        dataType: 'html',
+        success: function(data) {
+            if(data == 2) {
+                document.getElementById('person').innerHTML = 'Продавец'
+            } else
+            if(data == 9) {
+                document.getElementById('person').innerHTML = 'Админ'
+            }
+        }
+    })
 }

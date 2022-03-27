@@ -26,7 +26,8 @@ class ControlPanelController extends Controller
 
     public function personal()
     {
-        return view('control_panel.personal');
+        $users = new User();
+        return view('control_panel.personal', ['users' => $users->all()]);
     }
 
     public function categories()
@@ -423,5 +424,52 @@ class ControlPanelController extends Controller
             'product'=>$product,
             'store'=>$store
         ]);
+    }
+    
+    public function add_personal(){
+        return view('control_panel.forms.add_personal');
+    }
+
+    public function search_personal($poisk){
+        $user_poisk_count = User::where('id', '=', $poisk)->count();
+
+        if($user_poisk_count != 0){
+            return 1;
+        } else {
+            return 2;
+        }
+    }
+
+    public function user_personal($id){
+        $user = User::where('id', '=', $id)->first();
+        return view('control_panel.user_personal', ['user' => $user]);
+    }
+
+    public function downgrade($id){
+        $user = User::find($id);
+
+        if($user->status == 2) {
+            $user->status = 0;
+            $user->save();
+            return $user->status;
+        } elseif ($user->status == 9) {
+            $user->status = 2;
+            $user->save();
+            return $user->status;
+        }
+    }
+
+    public function raise($id){
+        $user = User::find($id);
+
+        if($user->status == 0) {
+            $user->status = 2;
+            $user->save();
+            return $user->status;
+        } elseif ($user->status == 2) {
+            $user->status = 9;
+            $user->save();
+            return $user->status;
+        }
     }
 }

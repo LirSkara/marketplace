@@ -6,7 +6,7 @@
         <li class="breadcrumb-item"><a href="/slider">Слайдер</a></li>
         <li class="breadcrumb-item active" aria-current="page">Добавление слайда</li>
     </ol>
-</nav>
+  </nav>
   <form action="/cp_add_slide" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-floating mb-2">
@@ -18,5 +18,6 @@
         <label for="href">Ссылка для перехода</label>
     </div>
     <button class="btn btn-darksuccess w-100 mt-2"><i class="bi bi-plus-circle"></i> Добавить</button>
-</form>
+  </form>
+</div>
 @endsection

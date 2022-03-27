@@ -74,6 +74,11 @@ Route::middleware('auth','admin')->group(function () {
     Route::get('/cp_edit_maction/{id}', [ControlPanelController::class, 'edit_maction']);
     Route::get('/cp_add_mrecomendation', [ControlPanelController::class, 'add_mrecomendation'])->name('add_maction');
     Route::get('/cp_edit_mrecomendation/{id}', [ControlPanelController::class, 'edit_mrecomendation']);
+    Route::get('/cp_add_personal', [ControlPanelController::class, 'add_personal']);
+    Route::get('/search_personal/{poisk}', [ControlPanelController::class, 'search_personal']);
+    Route::get('/user_personal/{id}', [ControlPanelController::class, 'user_personal']);
+    Route::get('/downgrade/{id}', [ControlPanelController::class, 'downgrade']);
+    Route::get('/raise/{id}', [ControlPanelController::class, 'raise']); 
 
     //Category
     Route::post('/add_categories', [ControlPanelController::class, 'add_categories_process']);
