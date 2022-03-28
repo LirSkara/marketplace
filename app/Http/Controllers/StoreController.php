@@ -10,6 +10,7 @@ use App\Models\Puncts;
 use App\Models\Product;
 use App\Models\Reviews;
 use App\Models\OrderOne;
+use App\Models\CarouselProduct;
 
 class StoreController extends Controller
 {
@@ -173,5 +174,46 @@ class StoreController extends Controller
             'product'=>$product,
             'store'=>$store
         ]);
+    }
+
+    public function carousel_product_process($id) {
+        $product = Product::find($id);
+        $carousel_product = CarouselProduct::where('product_id', '=', $id)->get();
+        $carousel_product_count = CarouselProduct::where('product_id', '=', $id)->count();
+        return view('store.forms.carousel_product', ['product' => $product, 'carousel_product' => $carousel_product, 'carousel_product_count' => $carousel_product_count]);
+    }
+
+    public function add_carousel_product_process($id, Request $data) {
+        $carousel_product = new CarouselProduct();
+        $carousel_product->product_id = $id;
+        $upload_folder = 'public/product/carousel/'.$id.'/';
+        $file = $data->file('image');
+        $filename = $file->getClientOriginalName();
+        Storage::putFileAs($upload_folder, $file, $filename); 
+        $carousel_product->image = $filename;
+        $carousel_product->save();
+        return redirect()->route('carousel_product', $id);
+    }
+
+    public function edit_carousel_product_process($id, Request $data) {
+        $carousel_product = CarouselProduct::find($id);
+        $upload_folder = 'public/product/carousel/'.$carousel_product->product_id.'/';
+        $file = $data->file('image');
+        $filename = $file->getClientOriginalName();
+        Storage::delete($upload_folder . '/' . $carousel_product->image);
+        Storage::putFileAs($upload_folder, $file, $filename); 
+        $carousel_product->image = $filename;
+        $carousel_product->save();
+        return redirect()->route('carousel_product', $carousel_product->product_id);
+    }
+
+    
+    public function delete_carousel_product_process($id) {
+        $carousel_product = CarouselProduct::find($id);
+        $product_id = $carousel_product->product_id;
+        $upload_folder = 'public/product/carousel/'.$carousel_product->product_id.'/';
+        Storage::delete($upload_folder . '/' . $carousel_product->image); 
+        $carousel_product = CarouselProduct::find($id)->delete(); 
+        return redirect()->route('carousel_product', $product_id);
     }
 }

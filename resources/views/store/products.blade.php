@@ -16,10 +16,9 @@
     <div id="rows" class="row g-3 row-cols-2 mt-0 px-2">
 
         @foreach($products->where('store', $item->id) as $product)
-            <div class="col mb-2 small">
+            <div class="col mb-2 small d-flex flex-column">
                 <a href="/product" class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></a>
-                <button style="position:relative; left: 150px; bottom: 17px;" class="btn py-1 px-2 bg-primary rounded-pill"  data-bs-toggle="modal" data-bs-target="#editimg{{$item->id}}"><i class="bi bi-camera text-white"></i></button>
-                <a href="/product" class="text-decoration-none text-dark">
+                <a href="/product" class="text-decoration-none text-dark mt-2">
                     <div><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
                     <div class="text-muted">{{$product->name}}</div>
                     <?php
@@ -74,8 +73,15 @@
                     @endif
                 </a>
                 <div class="mt-1">
-                    <button class="btn btn-warning text-white py-1" data-bs-toggle="modal" data-bs-target="#edittovar{{$item->id}}">Ред.</button>
-                    <button class="btn btn-danger py-1" data-bs-toggle="modal" data-bs-target="#deletetovar{{$item->id}}">Удалить</button>
+                    <button class="btn bg-darksuccess text-white w-100 dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Детали 
+                    </button>
+                    <ul class="dropdown-menu small py-0" aria-labelledby="dropdownUser1">
+                        <li><button class="dropdown-item border-bottom py-2"  data-bs-toggle="modal" data-bs-target="#editimg{{$item->id}}"><i class="bi bi-camera text-primary me-1"></i></i> Редактировать фото</button></li>
+                        <li><a href="/carousel_product/{{$product->id}}" class="dropdown-item border-bottom py-2"><i class="bi bi-film text-darksuccess me-1"></i> Карусель</a></li>
+                        <li><button class="dropdown-item border-bottom py-2" data-bs-toggle="modal" data-bs-target="#edittovar{{$item->id}}"><i class="bi bi-pencil text-warning me-1"></i> Редактировать</button></li>
+                        <li><button class="dropdown-item py-2 border-bottom" data-bs-toggle="modal" data-bs-target="#deletetovar{{$item->id}}"><i class="bi bi-trash text-danger me-1"></i> Удалить</button></li>
+                    </ul>
                 </div>
             </div>
 
