@@ -17,6 +17,7 @@ use App\Models\User;
 use App\Models\OrderOne;
 use App\Models\Cart;
 use App\Models\Mrecomendations;
+use App\Models\CarouselProduct;
 
 class MainController extends Controller
 {
@@ -29,7 +30,8 @@ class MainController extends Controller
         $products = new Product();
         $reviews = new Reviews;
         $favourites = new Favourites;
-        return view('home',['slides' => $slides->orderBy('id','desc')->get(),'collections' => $collections->orderBy('id','desc')->get(),'mactions' => $mactions->orderBy('id','desc')->get(), 'mrecomendation' => $mrecomendation, 'products' => $products->all(), 'reviews' => $reviews, 'favourites' => $favourites]);
+        $carousel_product = new CarouselProduct();
+        return view('home',['slides' => $slides->orderBy('id','desc')->get(),'collections' => $collections->orderBy('id','desc')->get(),'mactions' => $mactions->orderBy('id','desc')->get(), 'mrecomendation' => $mrecomendation, 'products' => $products->all(), 'reviews' => $reviews, 'favourites' => $favourites, 'carousel_product' => $carousel_product->all()]);
     }
 
     public function cart()
@@ -48,8 +50,8 @@ class MainController extends Controller
             $category = Categories::find($punct->category)->first();
             $reviews = Reviews::where('product', '=', $product->id);
             $users = new User();
-            
-            return view('product',['product'=>$product,'punct'=>$punct,'category'=>$category,'reviews'=>$reviews->orderBy('id','desc')->get(),'users'=>$users]);
+            $carousel_product = CarouselProduct::where('product_id', '=', $id)->get();
+            return view('product',['product'=>$product,'punct'=>$punct,'category'=>$category,'reviews'=>$reviews->orderBy('id','desc')->get(),'users'=>$users, 'carousel_product' => $carousel_product]);
         } else {
             return redirect()->route('home');
         }
@@ -82,7 +84,8 @@ class MainController extends Controller
             $item = Puncts::find($id);
             $products = new Product();
             $c_name = Categories::find($item->category)->name;
-            return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all(),'reviews'=>$reviews,'favourites'=>$favourites]);
+            $carousel_product = new CarouselProduct();
+            return view('category',['item' => $item,'c_name' => $c_name,'products'=>$products->all(),'reviews'=>$reviews,'favourites'=>$favourites, 'carousel_product' => $carousel_product->all()]);
         } else {
             return redirect()->route('home');
         }
@@ -107,7 +110,8 @@ class MainController extends Controller
         $products = new Product;
         $user = auth()->user();
         $favourites = new Favourites;
-        return view('favorites',['user'=>$user,'favourites'=>$favourites->all(),'products'=>$products,'reviews'=>$reviews]);
+        $carousel_product = new CarouselProduct();
+        return view('favorites',['user'=>$user,'favourites'=>$favourites->all(),'products'=>$products,'reviews'=>$reviews, 'carousel_product' => $carousel_product->all()]);
     }
 
     public function order_one($id){

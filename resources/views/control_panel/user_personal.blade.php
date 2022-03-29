@@ -22,7 +22,10 @@
         <div class="d-flex flex-column ms-3 ps-1 w-100">
             @if($user->status == 0) 
                 <h3 id="person">Пользователь</h3>
-                <button class="btn bg-darksuccess text-white w-100"><i class="bi bi-arrow-up"></i> Повысить</button>
+                <div class="d-flex gap-1">
+                    <button class="btn bg-darksuccess text-white w-100" id="up{{$user->id}}" onclick="raise(this.id)"><i class="bi bi-arrow-up"></i> Повысить</button>
+                    <button id="down{{$user->id}}" onclick="downgrade(this.id)" class="btn btn-danger w-50 d-none"><i class="bi bi-arrow-down"></i> Понизить</button>
+                </div>
             @elseif($user->status == 2)
                 <h3 id="person">Продавец</h3>
                 <div class="d-flex gap-1">

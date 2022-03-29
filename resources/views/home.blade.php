@@ -65,7 +65,26 @@
                 @foreach($products->where('id', $item->product) as $product)
                     <div class="col mb-2 small">
                         <a href="/product/{{$product->id}}" class="text-decoration-none text-dark">
-                            <div class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></div>
+                            <div id="carouselExampleIndicators{{$product->id}}" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="/storage/product/cover/{{$product->image}}" class="d-block carusel-image rounded-3" alt="...">
+                                    </div>
+                                    @foreach($carousel_product->where('product_id', $product->id) as $carousel)
+                                        <div class="carousel-item">
+                                            <img src="/storage/product/carousel/{{$carousel->product_id}}/{{$carousel->image}}" class="d-block carusel-image rounded-3" alt="...">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{$product->id}}" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon fs-1" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{$product->id}}" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon fs-1" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
                             <div class="mt-2"><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
                             <div class="text-muted">{{$product->name}}</div>
                             <?php

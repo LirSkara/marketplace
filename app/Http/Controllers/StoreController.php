@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Reviews;
 use App\Models\OrderOne;
 use App\Models\CarouselProduct;
+use App\Models\Characteristics;
 
 class StoreController extends Controller
 {
@@ -162,7 +163,8 @@ class StoreController extends Controller
         $productst = new Product();
         $categories = new Categories();
         $puncts = new puncts();
-        return view('store.products',['item'=>$item,'products'=>$products->all(),'productst'=>$productst,'reviews'=>$reviews, 'categories'=>$categories->all(), 'puncts'=>$puncts->all()]);
+        $carousel_product = new CarouselProduct;
+        return view('store.products',['item'=>$item,'products'=>$products->all(),'productst'=>$productst,'reviews'=>$reviews, 'categories'=>$categories->all(), 'puncts'=>$puncts->all(), 'carousel_product' => $carousel_product->all()]);
     }
 
     public function orders(){
@@ -180,7 +182,8 @@ class StoreController extends Controller
         $product = Product::find($id);
         $carousel_product = CarouselProduct::where('product_id', '=', $id)->get();
         $carousel_product_count = CarouselProduct::where('product_id', '=', $id)->count();
-        return view('store.forms.carousel_product', ['product' => $product, 'carousel_product' => $carousel_product, 'carousel_product_count' => $carousel_product_count]);
+        $store = Store::where('user', '=', auth()->user()->id)->first();
+        return view('store.forms.carousel_product', ['product' => $product, 'carousel_product' => $carousel_product, 'carousel_product_count' => $carousel_product_count, 'store' => $store]);
     }
 
     public function add_carousel_product_process($id, Request $data) {
@@ -207,7 +210,6 @@ class StoreController extends Controller
         return redirect()->route('carousel_product', $carousel_product->product_id);
     }
 
-    
     public function delete_carousel_product_process($id) {
         $carousel_product = CarouselProduct::find($id);
         $product_id = $carousel_product->product_id;
@@ -215,5 +217,48 @@ class StoreController extends Controller
         Storage::delete($upload_folder . '/' . $carousel_product->image); 
         $carousel_product = CarouselProduct::find($id)->delete(); 
         return redirect()->route('carousel_product', $product_id);
+    }
+
+    public function characteristics($id) {
+        $product = Product::find($id);
+        $store = Store::where('user', '=', auth()->user()->id)->first();
+        $characteristics = Characteristics::where('product_id', '=', $id)->get();
+        return view('store.forms.characteristics', ['product' => $product, 'store' => $store, 'characteristics' => $characteristics]);
+    }
+
+    public function add_characteristics($id, Request $data) {
+        $valid = $data->validate([
+            'name' => ['required'],
+            'description' => ['required'],
+        ]);
+
+        $characteristics = new Characteristics();
+        $characteristics->product_id = $id;
+        $characteristics->name = $data->input('name');
+        $characteristics->description = $data->input('description');
+        $characteristics->save();
+
+        return redirect()->route('characteristics', $id);
+    }
+
+    public function edit_characteristics($id, Request $data) {
+        $valid = $data->validate([
+            'name' => ['required'],
+            'description' => ['required'],
+        ]);
+
+        $characteristics = Characteristics::find($id);
+        $characteristics->name = $data->input('name');
+        $characteristics->description = $data->input('description');
+        $characteristics->save();
+
+        return redirect()->route('characteristics', $characteristics->product_id);
+    }
+
+    public function delete_characteristics($id) {
+        $product_id = Characteristics::find($id)->product_id;
+        $characteristics = Characteristics::find($id)->delete();
+
+        return redirect()->route('characteristics', $product_id);
     }
 }

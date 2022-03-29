@@ -17,7 +17,26 @@
 
         @foreach($products->where('store', $item->id) as $product)
             <div class="col mb-2 small d-flex flex-column">
-                <a href="/product" class="text-center"><img class="img-width-one rounded-3" src="/storage/product/cover/{{$product->image}}" alt="..." style="object-fit: cover;height:150px"></a>
+                <div id="carouselExampleIndicators{{$product->id}}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/storage/product/cover/{{$product->image}}" class="d-block carusel-image rounded-3" alt="...">
+                        </div>
+                        @foreach($carousel_product->where('product_id', $product->id) as $item)
+                            <div class="carousel-item">
+                                <img src="/storage/product/carousel/{{$item->product_id}}/{{$item->image}}" class="d-block carusel-image rounded-3" alt="...">
+                            </div>
+                        @endforeach
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{$product->id}}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon fs-1" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{$product->id}}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon fs-1" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
                 <a href="/product" class="text-decoration-none text-dark mt-2">
                     <div><span class="fw-bold me-2">{{$product->price}} ₽</span></div>
                     <div class="text-muted">{{$product->name}}</div>
@@ -78,6 +97,7 @@
                     </button>
                     <ul class="dropdown-menu small py-0" aria-labelledby="dropdownUser1">
                         <li><button class="dropdown-item border-bottom py-2"  data-bs-toggle="modal" data-bs-target="#editimg{{$item->id}}"><i class="bi bi-camera text-primary me-1"></i></i> Редактировать фото</button></li>
+                        <li><a href="/characteristics/{{$product->id}}" class="dropdown-item border-bottom py-2"><i class="bi bi-camera text-primary me-1"></i></i> Характеристики</a></li>
                         <li><a href="/carousel_product/{{$product->id}}" class="dropdown-item border-bottom py-2"><i class="bi bi-film text-darksuccess me-1"></i> Карусель</a></li>
                         <li><button class="dropdown-item border-bottom py-2" data-bs-toggle="modal" data-bs-target="#edittovar{{$item->id}}"><i class="bi bi-pencil text-warning me-1"></i> Редактировать</button></li>
                         <li><button class="dropdown-item py-2 border-bottom" data-bs-toggle="modal" data-bs-target="#deletetovar{{$item->id}}"><i class="bi bi-trash text-danger me-1"></i> Удалить</button></li>
@@ -85,8 +105,8 @@
                 </div>
             </div>
 
-             <!-- Modal Edit Img -->
-             <div class="modal fade" id="editimg{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- Modal Edit Img -->
+            <div class="modal fade" id="editimg{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header d-flex border-0">

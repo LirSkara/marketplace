@@ -19,11 +19,30 @@
             </div>
         </div>
         @else
-        <div id="rows" class="row g-3 row-cols-2 mt-0 px-2">
+        <div id="rows" class="row g-3 row-cols-2 row-cols-lg-6 mt-0 px-2">
             @foreach($favourites as $favourite)
                 <div class="col mb-2 small">
                     <a href="/product/{{$products->find($favourite->product)->id}}" class="text-decoration-none text-dark">
-                        <div class="text-center"><img class="img-width-one" src="/storage/product/cover/{{$products->find($favourite->product)->image}}" alt="..." style="object-fit: cover;height:150px"></div>
+                        <div id="carouselExampleIndicators{{$products->find($favourite->product)->id}}" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/storage/product/cover/{{$products->find($favourite->product)->image}}" class="d-block carusel-image rounded-3" alt="...">
+                                </div>
+                                @foreach($carousel_product->where('product_id', $products->find($favourite->product)->id) as $carousel)
+                                    <div class="carousel-item">
+                                        <img src="/storage/product/carousel/{{$carousel->product_id}}/{{$carousel->image}}" class="d-block carusel-image rounded-3" alt="...">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{$products->find($favourite->product)->id}}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon fs-1" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{$products->find($favourite->product)->id}}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon fs-1" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="mt-2"><span class="fw-bold me-2">{{$products->find($favourite->product)->price}} ₽</span><span class="text-muted text-decoration-line-through">25 990 ₽</span></div>
                         <div class="text-muted">Philips / Пылесос сухая / FC9733/01</div>
                         <?php

@@ -4,7 +4,7 @@
     <div class="d-flex flex-column">
         <nav aria-label="breadcrumb custom-cr">
             <ol class="breadcrumb crumb-custom">
-                <li class="breadcrumb-item"><a href="/store">Badaamo</a></li>
+                <li class="breadcrumb-item"><a href="/store">{{$store->name}}</a></li>
                 <li class="breadcrumb-item"><a href="/store/products">Товары</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Карусель</li>
             </ol>

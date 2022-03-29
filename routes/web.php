@@ -128,4 +128,8 @@ Route::middleware('auth','seller')->group(function () {
     Route::post('/add_carousel_product/{id}', [StoreController::class, 'add_carousel_product_process']);
     Route::post('/edit_carousel_product/{id}', [StoreController::class, 'edit_carousel_product_process']);
     Route::get('/delete_carousel_product/{id}', [StoreController::class, 'delete_carousel_product_process']);
+    Route::get('/characteristics/{id}', [StoreController::class, 'characteristics'])->name('characteristics');
+    Route::post('/add_characteristics/{id}', [StoreController::class, 'add_characteristics']);
+    Route::post('/edit_characteristics/{id}', [StoreController::class, 'edit_characteristics']);
+    Route::get('/delete_characteristics/{id}', [StoreController::class, 'delete_characteristics']);
 });

@@ -131,6 +131,10 @@ function downgrade(id) {
         success: function(data) {
             if(data == 0) {
                 document.getElementById('person').innerHTML = 'Пользователь'
+                let up = document.getElementById(`up${id}`)
+                let down = document.getElementById(`down${id}`)
+                up.classList.add('w-100')
+                down.classList.add('d-none')
             } else
             if(data == 2) {
                 document.getElementById('person').innerHTML = 'Продавец'
@@ -152,12 +156,22 @@ function raise(id) {
         success: function(data) {
             if(data == 2) {
                 document.getElementById('person').innerHTML = 'Продавец'
+                let up = document.getElementById(`up${id}`)
+                let down = document.getElementById(`down${id}`)
+                up.classList.remove('w-100')
+                up.classList.add('w-50')
+                down.classList.remove('d-none')
             } else
             if(data == 7) {
                 document.getElementById('person').innerHTML = 'Модератор'
             } else
             if(data == 9) {
                 document.getElementById('person').innerHTML = 'Админ'
+                let up = document.getElementById(`up${id}`)
+                let down = document.getElementById(`down${id}`)
+                up.classList.add('d-none')
+                down.classList.remove('w-50')
+                down.classList.add('w-100')
             }
         }
     })

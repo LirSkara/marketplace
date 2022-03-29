@@ -15,13 +15,15 @@
             <div class="row p-0">
                 <div class="col-12 col-lg-6">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/storage/product/cover/{{$product->image}}" class="d-block carusel-image" alt="...">
+                                <img src="/storage/product/cover/{{$product->image}}" class="d-block carusel-image rounded-3" alt="...">
                             </div>
+                            @foreach($carousel_product as $item)
+                                <div class="carousel-item">
+                                    <img src="/storage/product/carousel/{{$item->product_id}}/{{$item->image}}" class="d-block carusel-image rounded-3" alt="...">
+                                </div>
+                            @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon fs-1" aria-hidden="true"></span>
