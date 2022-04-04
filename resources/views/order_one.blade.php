@@ -36,7 +36,7 @@
         </select>
 
         <input type="text" value="{{old('adress')}}" class="form-control my-1 @error('adress') is-invalid @enderror" placeholder="Укажите адрес доставки" name="adress" id="adress">
-        <input type="tel"  value="{{old('tel')}}" class="form-control my-1 @error('tel') is-invalid @enderror" name="tel" placeholder="Номер телефона">
+        <input type="tel"  value="{{old('tel')}}" data-tel-input class="form-control my-1 @error('tel') is-invalid @enderror" name="tel" placeholder="Номер телефона">
 
         <button class="btn btn-darksuccess btn-lg w-100">Оформить покупку</button>
     </form>

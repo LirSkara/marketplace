@@ -7,6 +7,8 @@ use App\Models\UserProfile;
 use App\Models\Favourites;
 use App\Models\Cart;
 use App\Models\Reviews;
+use App\Models\CartOrder;
+use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
@@ -140,7 +142,22 @@ class AuthController extends Controller
 
     public function delivery()
     {
-        return view('my.delivery');
+        $cart_order = CartOrder::where('user_id', '=', auth()->user()->id)->get();
+        foreach($cart_order as $item) {
+            $products = explode(",", $item->product);
+        }
+        $product_all = Product::all();
+        $colvo = 0;
+        $itogo = 0;
+        foreach($cart_order as $item) {
+            $products = explode(",", $item->product);
+            foreach($products as $product) {
+                $colvo = $colvo+trim(strstr($product, '-'), '- ');
+                $my_product = Product::where('id', '=', trim(strstr($product, '-', true)))->first();
+                $itogo = $itogo + $my_product->price*trim(strstr($product, '-'), '- ');
+            }            
+        }
+        return view('my.delivery', ['cart_order' => $cart_order, 'products' => $products, 'product_all' => $product_all, 'colvo' => $colvo, 'itogo' => $itogo]);
     }
 
     public function sale()

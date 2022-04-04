@@ -86,6 +86,9 @@ function plus_product(id) {
         dataType: 'html',
         success: function(data){
             document.getElementById(`c${id}`).innerHTML = data
+            var itogo = document.getElementById('itogo').innerHTML
+            var price = document.getElementById(`price${id}`).innerHTML
+            document.getElementById('itogo').innerHTML = Number(itogo)+Number(price)
         }
     });
 }
@@ -99,6 +102,9 @@ function minus_product(id) {
         dataType: 'html',
         success: function(data){
             document.getElementById(`c${id}`).innerHTML = data
+            var itogo = document.getElementById('itogo').innerHTML
+            var price = document.getElementById(`price${id}`).innerHTML
+            document.getElementById('itogo').innerHTML = Number(itogo)-Number(price)
         }
     });
 }

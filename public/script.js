@@ -87,21 +87,6 @@ function sort(name) {
     }
 }
 
-function s_line(name) {
-    let poisk = document.getElementById(name).value
-    if(poisk != ''){
-        $.ajax({    
-            type: "GET",
-            url: `/search/${poisk}`,
-            method: 'get',
-            dataType: 'html',
-            success: function(data) {
-                document.getElementById('search_area').innerHTML = data
-            }
-        })
-    }
-}
-
 function show_personal() {
     var poisk = document.getElementById('search_input').value
     if(poisk != '') {

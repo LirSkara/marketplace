@@ -18,6 +18,9 @@
     <meta name="theme-color" content="#156f7e">
 
     <title>@yield('title')</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body class="bg-white pt-5">
@@ -29,7 +32,32 @@
                 </div>
                 <a href="/" class="col-6 col-lg-2 fs-2 col-center text-white text-decoration-none">MARKETPLACE</a>
                 <div class="col-3 col-lg-9 text-end width-col-end px-0">
-                    <input type="search" oninput="s_line(this.id)" id="search" class="header-search py-2 px-4 shadow-sm me-5" placeholder="Я ищу..." data-bs-toggle="modal" data-bs-target="#staticBackdropsearch">
+                    <div id="app" class="me-5 d-inline">
+                        <input type="search" v-model="searchString" v-on:input="line()" id="search" class="header-search py-2 px-4 shadow-sm" placeholder="Я ищу..." data-bs-toggle="modal" data-bs-target="#staticBackdropsearch">
+                            
+                        <!-- Начало модального окна поиск -->
+                        <div class="modal fade search-index" id="staticBackdropsearch" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-fullscreen-sm-down modal-search">
+                                <div class="modal-content rounded-5 shadow">
+                                    <div class="modal-body pt-0">
+                                        <div class="container mt-3 px-0">
+                                            <div class="d-flex display-modal-search">
+                                                <input id="search" type="text" class="search-custom">
+                                                <button id="close_custom" class="item-custom btn btn-none="><i id="itemclose" class="bi bi-search text-muted itemposition-custom"></i></button>
+                                                <div><button class="btn btn-none text-darksuccess" data-bs-dismiss="modal" aria-label="Close">Отмена</button></div>
+                                            </div>
+                                            <div class="d-flex flex-column text-start">
+                                                <div v-for="item in articlesarray">
+                                                    <div class="text-dark fw-bold me-auto">@{{ item.name }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Конец модального окна поиск -->
+                    </div>
                     @if(Auth::check())
                         <a href="/cabinet" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
                     @else
@@ -101,30 +129,12 @@
     </div>
     <!-- Конец модального окна меню -->
 
-    <!-- Начало модального окна поиск -->
-    <div class="modal fade search-index" id="staticBackdropsearch" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-sm-down modal-search">
-            <div class="modal-content rounded-5 shadow">
-                <div class="modal-body pt-0">
-                    <div class="container mt-3 px-0">
-                        <div class="d-flex display-modal-search">
-                            <input id="search" type="text" class="search-custom">
-                            <button id="close_custom" class="item-custom btn btn-none="><i id="itemclose" class="bi bi-search text-muted itemposition-custom"></i></button>
-                            <div><button class="btn btn-none text-darksuccess" data-bs-dismiss="modal" aria-label="Close">Отмена</button></div>
-                        </div>
-                        <div id="search_area"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Конец модального окна поиск -->
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/script.js"></script>
     <script src="/js/ajax.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/vue.js"></script>
+    <script src="/maska.js"></script>
 </body>
 
 </html>

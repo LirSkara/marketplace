@@ -18,6 +18,7 @@ use App\Models\OrderOne;
 use App\Models\Cart;
 use App\Models\Mrecomendations;
 use App\Models\CarouselProduct;
+use App\Models\CartOrder;
 
 class MainController extends Controller
 {
@@ -39,7 +40,21 @@ class MainController extends Controller
         $products = new Product();
         $user = auth()->user();
         $cart = new Cart;
-        return view('cart',['cart'=>$cart->all(),'user'=>$user,'products'=>$products]);
+        if(Auth()->check()) {
+            if(Cart::where('user_id', '=', auth()->user()->id)->count() != 0) {
+                $cart_itog = Cart::where('user_id', '=', auth()->user()->id)->get();
+                $itogo = 0;
+                foreach($cart_itog as $item) {
+                    $my_product = Product::where('id', '=', $item->product_id)->first();
+                        $itogo = $itogo + $my_product->price*$item->colvo;
+                }
+                return view('cart',['cart'=>$cart->all(),'user'=>$user,'products'=>$products, 'itogo' => $itogo]);
+            } else {
+                return view('cart',['cart'=>$cart->all(),'user'=>$user,'products'=>$products]);
+            }
+        } else {
+            return view('cart',['cart'=>$cart->all(),'user'=>$user,'products'=>$products]);
+        }
     }
 
     public function product($id)
@@ -184,8 +199,47 @@ class MainController extends Controller
         return $cart->colvo;
     }
 
-    public function search($poisk) {
+    public function search() {
         $search = new Product;
-        return view('search', ['search' => $search->all(),'poisk'=>$poisk]);
+        return json_encode($search->all());
     }
+
+    public function cart_order(Request $data) {
+        $valid = $data->validate([
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'sposob' => ['required'],
+            'adress' => ['required'],
+            'tel' => ['required']
+        ]);
+
+        $cart = Cart::where('user_id', '=', auth()->user()->id)->get();
+
+        $itogo = 0;
+        foreach($cart as $item) {
+            $my_product = Product::where('id', '=', $item->product_id)->first();
+            $itogo = $itogo + $my_product->price*$item->colvo;
+        }
+
+        $order = new CartOrder();
+        $order->user_id = auth()->user()->id;
+        $product = '';
+        foreach($cart as $item){
+            $product = $product.$item->product_id.'-'.$item->colvo.',';
+        }
+        $product = rtrim($product, ",");
+        $order->product = $product;
+        $order->summ = $itogo;
+        $order->firstname = $data->input('firstname');
+        $order->lastname = $data->input('lastname');
+        $order->sposob = $data->input('sposob');
+        $order->adress = $data->input('adress');
+        $order->tel = $data->input('tel');
+        $order->status = 0;
+        $order->save();
+
+        $cart = Cart::where('user_id', '=', auth()->user()->id)->delete();
+
+        return 1;
+    }   
 }
