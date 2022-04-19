@@ -32,7 +32,7 @@
                 </div>
                 <a href="/" class="col-6 col-lg-2 fs-2 col-center text-white text-decoration-none">MARKETPLACE</a>
                 <div class="col-3 col-lg-9 text-end width-col-end px-0">
-                    <div id="app" class="me-5 d-inline">
+                    <div id="app" class="d-inline">
                         <input type="search" v-model="searchString" v-on:input="line()" id="search" class="header-search py-2 px-4 shadow-sm" placeholder="Я ищу..." data-bs-toggle="modal" data-bs-target="#staticBackdropsearch">
                             
                         <!-- Начало модального окна поиск -->
@@ -61,10 +61,10 @@
                     @if(Auth::check())
                         <a href="/cabinet" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
                     @else
-                        <a href="/login" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person-fill"></i></a>
+                        <a href="/login" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-person"></i></a>
                     @endif              
-                    <a href="/favorites" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-bookmark-heart"></i></a>
-                    <a href="/cart" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-cart4"></i></a>
+                    <a href="/favorites" class="fs-2 btn py-0 text-white display-top-icon"><i class="fa fa-heart-o" aria-hidden="true"></i>                    </a>
+                    <a href="/cart" class="fs-2 btn py-0 text-white display-top-icon"><i class="bi bi-cart3"></i></a>
                     <button class="fs-2 btn btn-none py-0 text-white display-top-search" data-bs-toggle="modal" data-bs-target="#staticBackdropsearch"><i class="fa fa-search me-1" aria-hidden="true"></i></button>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 @else
                 <a id="sign_in" href="/login" class="col text-muted"><i class="bi bi-person-fill"></i></a>
                 @endif
-                <a id="heart" href="/favorites" class="col text-muted"><i class="bi bi-bookmark-heart"></i></a>
+                <a id="heart" href="/favorites" class="col text-muted"><i class="fa fa-heart-o" aria-hidden="true"></i>                </a>
                 <a id="cart" href="/cart" class="col text-muted"><i class="bi bi-cart4"></i></a>
             </div>
         </div>
@@ -117,7 +117,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="d-flex flex-column bg-light px-0 pb-5 pt-3 px-3">
+                    <div class="d-flex flex-column bg-light px-0 pb-3 mb-5 pt-3 px-3">
                         <div class="mb-2">
                             <img class="flag-custom" src="https://otvet.imgsmail.ru/download/44d40600699e0fdbcb126cb2b3e34b8b_h-1142.jpg" alt="...">
                             <span class="">Россия</span>, <span class="">Дербент</span>
